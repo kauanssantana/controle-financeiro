@@ -6,49 +6,19 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const [mesAtualIndex, setMesAtualIndex] = useState(meses.length - 1);
-  const mesAtual = meses[mesAtualIndex];
-
-  // Variável auxiliar para padronizar a chave de busca e salvamento
-  const chaveMes = `${mesAtual.ano}_${mesAtual.mesNum}`;
-
-  // 1. Inicializa a renda buscando primeiro no cache específico do mês
-  const [renda, setRenda] = useState(() => {
-    const salvo = localStorage.getItem(`renda_${chaveMes}`);
-    return salvo ? Number(salvo) : mesAtual.renda;
+  const [listaMeses, setListaMeses] = useState(() => {
+    const salvo = localStorage.getItem("meses");
+    return salvo ? JSON.parse(salvo) : meses;
   });
 
-  // 2. Inicializa as categorias buscando primeiro no cache específico do mês
-  const [categorias, setCategorias] = useState(() => {
-    const salvo = localStorage.getItem(`categorias_${chaveMes}`);
-    return salvo ? JSON.parse(salvo) : mesAtual.categorias;
-  });
-
-  // 3. ATUALIZAÇÃO CORRETA (Derived State): Substitui o useEffect problemático
-  // Compara o mês que estava na tela com o mês que o usuário selecionou agora
-  const [mesAnteriorState, setMesAnteriorState] = useState(mesAtualIndex);
-
-  if (mesAtualIndex !== mesAnteriorState) {
-    const rendaSalva = localStorage.getItem(`renda_${chaveMes}`);
-    setRenda(rendaSalva ? Number(rendaSalva) : mesAtual.renda);
-
-    const categoriasSalvas = localStorage.getItem(`categorias_${chaveMes}`);
-    setCategorias(
-      categoriasSalvas ? JSON.parse(categoriasSalvas) : mesAtual.categorias,
-    );
-
-    // Atualiza o rastreador para indicar que a tela já atualizou
-    setMesAnteriorState(mesAtualIndex);
-  }
-
-  // 4. Salva no cache usando a chave única do mês/ano
   useEffect(() => {
-    localStorage.setItem(`renda_${chaveMes}`, renda);
-  }, [renda, chaveMes]);
+    localStorage.setItem("meses", JSON.stringify(listaMeses));
+  }, [listaMeses]);
 
-  useEffect(() => {
-    localStorage.setItem(`categorias_${chaveMes}`, JSON.stringify(categorias));
-  }, [categorias, chaveMes]);
+  const [mesAtualIndex, setMesAtualIndex] = useState(listaMeses.length - 1);
+  const mesAtual = listaMeses[mesAtualIndex];
+  const renda = mesAtual.renda;
+  const categorias = mesAtual.categorias;
 
   const totalGastos = categorias.reduce(
     (acumulador, cat) => acumulador + cat.valor,
@@ -57,10 +27,16 @@ function App() {
   const saldo = renda - totalGastos;
 
   function atualizarCategoria(nomeCategoria, novoValor) {
-    setCategorias(
-      categorias.map((cat) =>
-        cat.nome === nomeCategoria ? { ...cat, valor: novoValor } : cat,
-      ),
+    setListaMeses(
+      listaMeses.map((mes, index) => {
+        if (index !== mesAtualIndex) return mes;
+        return {
+          ...mes,
+          categorias: mes.categorias.map((cat) =>
+            cat.nome === nomeCategoria ? { ...cat, valor: novoValor } : cat,
+          ),
+        };
+      }),
     );
   }
 
@@ -71,7 +47,7 @@ function App() {
   }
 
   function proximoMes() {
-    if (mesAtualIndex < meses.length - 1) {
+    if (mesAtualIndex < listaMeses.length - 1) {
       setMesAtualIndex(mesAtualIndex + 1);
     }
   }
@@ -99,7 +75,7 @@ function App() {
           </h2>
           <button
             onClick={proximoMes}
-            disabled={mesAtualIndex === meses.length - 1}
+            disabled={mesAtualIndex === listaMeses.length - 1}
           >
             Próximo →
           </button>
