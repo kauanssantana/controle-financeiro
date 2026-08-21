@@ -1,9 +1,9 @@
+import { Routes, Route } from "react-router-dom";
 import { meses } from "./data/meses";
-import GraficoPizza from "./components/GraficoPizza";
-import GraficoEstimadoReal from "./components/GraficoEstimadoReal";
-import ListaCategorias from "./components/ListaCategorias";
-import Resumo from "./components/Resumo";
-import AbasAno from "./components/AbasAno";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
+import Relatorios from "./pages/Relatorios";
+import Configuracoes from "./pages/Configuracoes";
 import { useState, useEffect } from "react";
 import "./App.css";
 
@@ -41,14 +41,12 @@ function App() {
     localStorage.setItem("meses", JSON.stringify(listaMeses));
   }, [listaMeses]);
 
-  // Lista de anos únicos disponíveis, em ordem (ex: [2025, 2026])
   const anosDisponiveis = [...new Set(listaMeses.map((mes) => mes.ano))].sort();
 
   const [anoSelecionado, setAnoSelecionado] = useState(
     listaMeses[listaMeses.length - 1].ano,
   );
 
-  // Só os meses do ano selecionado, na ordem certa
   const mesesDoAno = listaMeses
     .filter((mes) => mes.ano === anoSelecionado)
     .sort((a, b) => a.mesNum - b.mesNum);
@@ -65,15 +63,12 @@ function App() {
   );
   const saldo = renda - totalGastos;
 
-  // Troca de ano: seleciona o novo ano e aponta pro último mês disponível dele
   function trocarAno(novoAno) {
     setAnoSelecionado(novoAno);
     const mesesDoNovoAno = listaMeses.filter((mes) => mes.ano === novoAno);
     setMesAtualIndex(mesesDoNovoAno.length - 1);
   }
 
-  // Identificamos o mês a editar por ano+mesNum (não por índice) — mais seguro
-  // agora que existe mais de uma "visão" (lista completa x lista filtrada por ano).
   function atualizarItem(nomeCategoria, nomeItem, campo, novoValor) {
     setListaMeses(
       listaMeses.map((mes) => {
@@ -142,8 +137,6 @@ function App() {
       })),
     };
 
-    // Quantos meses do novo ano já existem ANTES de adicionar o novo —
-    // isso vai ser o índice dele dentro da lista filtrada depois.
     const mesesDoNovoAnoAntes = listaMeses.filter(
       (mes) => mes.ano === novoAno,
     ).length;
@@ -157,79 +150,51 @@ function App() {
     mesAtual.ano === listaMeses[listaMeses.length - 1].ano &&
     mesAtual.mesNum === listaMeses[listaMeses.length - 1].mesNum;
 
+  const dadosDashboard = {
+    mesAtual,
+    categorias,
+    renda,
+    totalGastos,
+    totalEstimado,
+    saldo,
+  };
+  const navegacaoDashboard = {
+    anosDisponiveis,
+    anoSelecionado,
+    trocarAno,
+    mesesDoAno,
+    mesAtualIndex,
+    mesAnterior,
+    proximoMes,
+    criarProximoMes,
+    ehUltimoMesGlobal,
+  };
+  const acoesDashboard = { atualizarRenda, atualizarItem };
+
   return (
     <div className="app-layout">
-      <aside className="sidebar">
-        <h1>Controle</h1>
-        <div className="sidebar-menu">
-          <span>📊 Dashboard</span>
-          <span>📈 Relatórios</span>
-          <span>⚙️ Configurações</span>
-        </div>
-      </aside>
-
+      <Sidebar />
       <main className="main-content">
-        <AbasAno
-          anos={anosDisponiveis}
-          anoSelecionado={anoSelecionado}
-          onSelecionarAno={trocarAno}
-        />
-
-        <header className="cabecalho-mes">
-          <button onClick={mesAnterior} disabled={mesAtualIndex === 0}>
-            ← Anterior
-          </button>
-          <h2>
-            {mesAtual.mes} de {mesAtual.ano}
-          </h2>
-          <button
-            onClick={proximoMes}
-            disabled={mesAtualIndex === mesesDoAno.length - 1}
-          >
-            Próximo →
-          </button>
-          {ehUltimoMesGlobal && mesAtualIndex === mesesDoAno.length - 1 && (
-            <button onClick={criarProximoMes} className="botao-novo-mes">
-              + Criar mês
-            </button>
-          )}
-        </header>
-
-        <div className="dashboard-grid">
-          <div className="card card-resumo">
-            <h3>Visão Geral</h3>
-            <Resumo renda={renda} atualizarRenda={atualizarRenda} />
-            <p>
-              <span>Gasto real</span>
-              <strong>R$ {totalGastos.toFixed(2)}</strong>
-            </p>
-            <p>
-              <span>Gasto estimado</span>
-              <strong>R$ {totalEstimado.toFixed(2)}</strong>
-            </p>
-            <p className={saldo >= 0 ? "linha-positiva" : "linha-negativa"}>
-              <span>Saldo</span>
-              <strong>R$ {saldo.toFixed(2)}</strong>
-            </p>
-          </div>
-
-          <div className="card card-grafico">
-            <GraficoPizza categorias={categorias} />
-          </div>
-
-          <div className="card card-lista">
-            <h3>Detalhamento de Gastos</h3>
-            <ListaCategorias
-              categorias={categorias}
-              atualizarItem={atualizarItem}
-            />
-          </div>
-
-          <div className="card card-comparativo">
-            <h3>Estimado x Real por categoria</h3>
-            <GraficoEstimadoReal categorias={categorias} />
-          </div>
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                dados={dadosDashboard}
+                navegacao={navegacaoDashboard}
+                acoes={acoesDashboard}
+              />
+            }
+          />
+          <Route
+            path="/relatorios"
+            element={<Relatorios listaMeses={listaMeses} />}
+          />
+          <Route
+            path="/configuracoes"
+            element={<Configuracoes totalMeses={listaMeses.length} />}
+          />
+        </Routes>
       </main>
     </div>
   );
