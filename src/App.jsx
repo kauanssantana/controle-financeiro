@@ -1,9 +1,21 @@
 import { meses } from "./data/meses";
 import GraficoPizza from "./components/GraficoPizza";
+import GraficoEstimadoReal from "./components/GraficoEstimadoReal";
 import ListaCategorias from "./components/ListaCategorias";
 import Resumo from "./components/Resumo";
 import { useState, useEffect } from "react";
 import "./App.css";
+
+// Recalcula totalEstimado/totalReal de uma categoria a partir dos itens.
+// Centralizamos essa conta aqui pra não repetir a mesma lógica em vários lugares.
+function recalcularCategoria(categoria) {
+  const totalEstimado = categoria.itens.reduce(
+    (soma, i) => soma + i.estimado,
+    0,
+  );
+  const totalReal = categoria.itens.reduce((soma, i) => soma + i.real, 0);
+  return { ...categoria, totalEstimado, totalReal };
+}
 
 function App() {
   const [listaMeses, setListaMeses] = useState(() => {
@@ -20,41 +32,53 @@ function App() {
   const renda = mesAtual.renda;
   const categorias = mesAtual.categorias;
 
-  const totalGastos = categorias.reduce(
-    (acumulador, cat) => acumulador + cat.valor,
+  const totalGastos = categorias.reduce((soma, cat) => soma + cat.totalReal, 0);
+  const totalEstimado = categorias.reduce(
+    (soma, cat) => soma + cat.totalEstimado,
     0,
   );
   const saldo = renda - totalGastos;
 
-  function atualizarCategoria(nomeCategoria, novoValor) {
+  function atualizarItem(nomeCategoria, nomeItem, campo, novoValor) {
     setListaMeses(
       listaMeses.map((mes, index) => {
         if (index !== mesAtualIndex) return mes;
         return {
           ...mes,
-          categorias: mes.categorias.map((cat) =>
-            cat.nome === nomeCategoria ? { ...cat, valor: novoValor } : cat,
-          ),
+          categorias: mes.categorias.map((cat) => {
+            if (cat.nome !== nomeCategoria) return cat;
+            const categoriaAtualizada = {
+              ...cat,
+              itens: cat.itens.map((item) =>
+                item.nome === nomeItem ? { ...item, [campo]: novoValor } : item,
+              ),
+            };
+            return recalcularCategoria(categoriaAtualizada);
+          }),
         };
       }),
     );
   }
 
+  function atualizarRenda(novoValor) {
+    setListaMeses(
+      listaMeses.map((mes, index) =>
+        index === mesAtualIndex ? { ...mes, renda: novoValor } : mes,
+      ),
+    );
+  }
+
   function mesAnterior() {
-    if (mesAtualIndex > 0) {
-      setMesAtualIndex(mesAtualIndex - 1);
-    }
+    if (mesAtualIndex > 0) setMesAtualIndex(mesAtualIndex - 1);
   }
 
   function proximoMes() {
-    if (mesAtualIndex < listaMeses.length - 1) {
+    if (mesAtualIndex < listaMeses.length - 1)
       setMesAtualIndex(mesAtualIndex + 1);
-    }
   }
 
   return (
     <div className="app-layout">
-      {/* NOVA BARRA LATERAL */}
       <aside className="sidebar">
         <h1>Controle</h1>
         <div className="sidebar-menu">
@@ -64,7 +88,6 @@ function App() {
         </div>
       </aside>
 
-      {/* ÁREA PRINCIPAL */}
       <main className="main-content">
         <header className="cabecalho-mes">
           <button onClick={mesAnterior} disabled={mesAtualIndex === 0}>
@@ -81,14 +104,22 @@ function App() {
           </button>
         </header>
 
-        {/* O GRID COM OS CARDS */}
         <div className="dashboard-grid">
           <div className="card card-resumo">
             <h3>Visão Geral</h3>
-            <br />
-            <Resumo renda={renda} />
-            <br />
-            <h2>Saldo: R$ {saldo}</h2>
+            <Resumo renda={renda} atualizarRenda={atualizarRenda} />
+            <p>
+              <span>Gasto real</span>
+              <strong>R$ {totalGastos.toFixed(2)}</strong>
+            </p>
+            <p>
+              <span>Gasto estimado</span>
+              <strong>R$ {totalEstimado.toFixed(2)}</strong>
+            </p>
+            <p className={saldo >= 0 ? "linha-positiva" : "linha-negativa"}>
+              <span>Saldo</span>
+              <strong>R$ {saldo.toFixed(2)}</strong>
+            </p>
           </div>
 
           <div className="card card-grafico">
@@ -97,11 +128,15 @@ function App() {
 
           <div className="card card-lista">
             <h3>Detalhamento de Gastos</h3>
-            <br />
             <ListaCategorias
               categorias={categorias}
-              atualizarCategoria={atualizarCategoria}
+              atualizarItem={atualizarItem}
             />
+          </div>
+
+          <div className="card card-comparativo">
+            <h3>Estimado x Real por categoria</h3>
+            <GraficoEstimadoReal categorias={categorias} />
           </div>
         </div>
       </main>
