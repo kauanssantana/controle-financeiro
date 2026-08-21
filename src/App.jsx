@@ -3,11 +3,10 @@ import GraficoPizza from "./components/GraficoPizza";
 import GraficoEstimadoReal from "./components/GraficoEstimadoReal";
 import ListaCategorias from "./components/ListaCategorias";
 import Resumo from "./components/Resumo";
+import AbasAno from "./components/AbasAno";
 import { useState, useEffect } from "react";
 import "./App.css";
 
-// Recalcula totalEstimado/totalReal de uma categoria a partir dos itens.
-// Centralizamos essa conta aqui pra não repetir a mesma lógica em vários lugares.
 function recalcularCategoria(categoria) {
   const totalEstimado = categoria.itens.reduce(
     (soma, i) => soma + i.estimado,
@@ -16,6 +15,21 @@ function recalcularCategoria(categoria) {
   const totalReal = categoria.itens.reduce((soma, i) => soma + i.real, 0);
   return { ...categoria, totalEstimado, totalReal };
 }
+
+const NOMES_MESES = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro",
+];
 
 function App() {
   const [listaMeses, setListaMeses] = useState(() => {
@@ -27,8 +41,20 @@ function App() {
     localStorage.setItem("meses", JSON.stringify(listaMeses));
   }, [listaMeses]);
 
-  const [mesAtualIndex, setMesAtualIndex] = useState(listaMeses.length - 1);
-  const mesAtual = listaMeses[mesAtualIndex];
+  // Lista de anos únicos disponíveis, em ordem (ex: [2025, 2026])
+  const anosDisponiveis = [...new Set(listaMeses.map((mes) => mes.ano))].sort();
+
+  const [anoSelecionado, setAnoSelecionado] = useState(
+    listaMeses[listaMeses.length - 1].ano,
+  );
+
+  // Só os meses do ano selecionado, na ordem certa
+  const mesesDoAno = listaMeses
+    .filter((mes) => mes.ano === anoSelecionado)
+    .sort((a, b) => a.mesNum - b.mesNum);
+
+  const [mesAtualIndex, setMesAtualIndex] = useState(mesesDoAno.length - 1);
+  const mesAtual = mesesDoAno[mesAtualIndex];
   const renda = mesAtual.renda;
   const categorias = mesAtual.categorias;
 
@@ -39,10 +65,20 @@ function App() {
   );
   const saldo = renda - totalGastos;
 
+  // Troca de ano: seleciona o novo ano e aponta pro último mês disponível dele
+  function trocarAno(novoAno) {
+    setAnoSelecionado(novoAno);
+    const mesesDoNovoAno = listaMeses.filter((mes) => mes.ano === novoAno);
+    setMesAtualIndex(mesesDoNovoAno.length - 1);
+  }
+
+  // Identificamos o mês a editar por ano+mesNum (não por índice) — mais seguro
+  // agora que existe mais de uma "visão" (lista completa x lista filtrada por ano).
   function atualizarItem(nomeCategoria, nomeItem, campo, novoValor) {
     setListaMeses(
-      listaMeses.map((mes, index) => {
-        if (index !== mesAtualIndex) return mes;
+      listaMeses.map((mes) => {
+        if (mes.ano !== mesAtual.ano || mes.mesNum !== mesAtual.mesNum)
+          return mes;
         return {
           ...mes,
           categorias: mes.categorias.map((cat) => {
@@ -62,8 +98,10 @@ function App() {
 
   function atualizarRenda(novoValor) {
     setListaMeses(
-      listaMeses.map((mes, index) =>
-        index === mesAtualIndex ? { ...mes, renda: novoValor } : mes,
+      listaMeses.map((mes) =>
+        mes.ano === mesAtual.ano && mes.mesNum === mesAtual.mesNum
+          ? { ...mes, renda: novoValor }
+          : mes,
       ),
     );
   }
@@ -73,9 +111,51 @@ function App() {
   }
 
   function proximoMes() {
-    if (mesAtualIndex < listaMeses.length - 1)
+    if (mesAtualIndex < mesesDoAno.length - 1)
       setMesAtualIndex(mesAtualIndex + 1);
   }
+
+  function criarProximoMes() {
+    const ultimoMes = listaMeses[listaMeses.length - 1];
+
+    let novoMesNum = ultimoMes.mesNum + 1;
+    let novoAno = ultimoMes.ano;
+    if (novoMesNum > 12) {
+      novoMesNum = 1;
+      novoAno = ultimoMes.ano + 1;
+    }
+
+    const novoMes = {
+      ano: novoAno,
+      mesNum: novoMesNum,
+      mes: NOMES_MESES[novoMesNum - 1],
+      renda: ultimoMes.renda,
+      categorias: ultimoMes.categorias.map((cat) => ({
+        nome: cat.nome,
+        itens: cat.itens.map((item) => ({
+          nome: item.nome,
+          estimado: item.estimado,
+          real: 0,
+        })),
+        totalEstimado: cat.totalEstimado,
+        totalReal: 0,
+      })),
+    };
+
+    // Quantos meses do novo ano já existem ANTES de adicionar o novo —
+    // isso vai ser o índice dele dentro da lista filtrada depois.
+    const mesesDoNovoAnoAntes = listaMeses.filter(
+      (mes) => mes.ano === novoAno,
+    ).length;
+
+    setListaMeses([...listaMeses, novoMes]);
+    setAnoSelecionado(novoAno);
+    setMesAtualIndex(mesesDoNovoAnoAntes);
+  }
+
+  const ehUltimoMesGlobal =
+    mesAtual.ano === listaMeses[listaMeses.length - 1].ano &&
+    mesAtual.mesNum === listaMeses[listaMeses.length - 1].mesNum;
 
   return (
     <div className="app-layout">
@@ -89,6 +169,12 @@ function App() {
       </aside>
 
       <main className="main-content">
+        <AbasAno
+          anos={anosDisponiveis}
+          anoSelecionado={anoSelecionado}
+          onSelecionarAno={trocarAno}
+        />
+
         <header className="cabecalho-mes">
           <button onClick={mesAnterior} disabled={mesAtualIndex === 0}>
             ← Anterior
@@ -98,10 +184,15 @@ function App() {
           </h2>
           <button
             onClick={proximoMes}
-            disabled={mesAtualIndex === listaMeses.length - 1}
+            disabled={mesAtualIndex === mesesDoAno.length - 1}
           >
             Próximo →
           </button>
+          {ehUltimoMesGlobal && mesAtualIndex === mesesDoAno.length - 1 && (
+            <button onClick={criarProximoMes} className="botao-novo-mes">
+              + Criar mês
+            </button>
+          )}
         </header>
 
         <div className="dashboard-grid">

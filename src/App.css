@@ -253,3 +253,33 @@
   outline: none;
   background-color: rgba(201, 162, 75, 0.15);
 }
+
+/* =========================================
+   ABAS DE ANO (Navegação 2025 / 2026 / ...)
+========================================= */
+
+/* Container das abas, uma ao lado da outra */
+.abas-ano {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* Cada aba: formato de "pílula", vazia por padrão */
+.aba-ano {
+  border: 1px solid rgba(38, 51, 43, 0.25);
+  background: transparent;
+  color: var(--tinta);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Aba do ano selecionado no momento: preenchida em verde */
+.aba-ano.ativa {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: #fff;
+}
