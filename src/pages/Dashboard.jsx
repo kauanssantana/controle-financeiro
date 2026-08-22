@@ -1,11 +1,11 @@
 import GraficoPizza from "../components/GraficoPizza";
 import GraficoEstimadoReal from "../components/GraficoEstimadoReal";
 import ListaCategorias from "../components/ListaCategorias";
-import Resumo from "../components/Resumo";
+import VisaoGeral from "../components/VisaoGeral";
 import AbasAno from "../components/AbasAno";
 
 function Dashboard({ dados, navegacao, acoes }) {
-  const { mesAtual, categorias, renda, totalGastos, totalEstimado, saldo } =
+  const { mesAtual, categorias, renda, saldo, totalGastos, totalEstimado } =
     dados;
   const {
     anosDisponiveis,
@@ -18,7 +18,7 @@ function Dashboard({ dados, navegacao, acoes }) {
     criarProximoMes,
     ehUltimoMesGlobal,
   } = navegacao;
-  const { atualizarRenda, atualizarItem } = acoes;
+  const { atualizarRenda, atualizarSaldo, atualizarItem } = acoes;
 
   return (
     <>
@@ -51,19 +51,14 @@ function Dashboard({ dados, navegacao, acoes }) {
       <div className="dashboard-grid">
         <div className="card card-resumo">
           <h3>Visão Geral</h3>
-          <Resumo renda={renda} atualizarRenda={atualizarRenda} />
-          <p>
-            <span>Gasto real</span>
-            <strong>R$ {totalGastos.toFixed(2)}</strong>
-          </p>
-          <p>
-            <span>Gasto estimado</span>
-            <strong>R$ {totalEstimado.toFixed(2)}</strong>
-          </p>
-          <p className={saldo >= 0 ? "linha-positiva" : "linha-negativa"}>
-            <span>Saldo</span>
-            <strong>R$ {saldo.toFixed(2)}</strong>
-          </p>
+          <VisaoGeral
+            renda={renda}
+            saldo={saldo}
+            totalGastos={totalGastos}
+            totalEstimado={totalEstimado}
+            atualizarRenda={atualizarRenda}
+            atualizarSaldo={atualizarSaldo}
+          />
         </div>
 
         <div className="card card-grafico">

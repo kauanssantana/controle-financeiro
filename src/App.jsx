@@ -53,7 +53,8 @@ function App() {
 
   const [mesAtualIndex, setMesAtualIndex] = useState(mesesDoAno.length - 1);
   const mesAtual = mesesDoAno[mesAtualIndex];
-  const renda = mesAtual.renda;
+  const renda = mesAtual.renda.real; // { projetada: {fixa, extra, total}, real: {fixa, extra, total} }
+  const saldo = mesAtual.saldo; // { previsto, real, inicial, final }
   const categorias = mesAtual.categorias;
 
   const totalGastos = categorias.reduce((soma, cat) => soma + cat.totalReal, 0);
@@ -61,7 +62,6 @@ function App() {
     (soma, cat) => soma + cat.totalEstimado,
     0,
   );
-  const saldo = renda - totalGastos;
 
   function trocarAno(novoAno) {
     setAnoSelecionado(novoAno);
@@ -91,11 +91,28 @@ function App() {
     );
   }
 
-  function atualizarRenda(novoValor) {
+  // tipo: "projetada" ou "real" | campo: "fixa" ou "extra"
+  function atualizarRenda(campo, novoValor) {
+    setListaMeses(
+      listaMeses.map((mes) => {
+        if (mes.ano !== mesAtual.ano || mes.mesNum !== mesAtual.mesNum)
+          return mes;
+        const rendaAtualizada = { ...mes.renda.real, [campo]: novoValor };
+        rendaAtualizada.total = rendaAtualizada.fixa + rendaAtualizada.extra;
+        return {
+          ...mes,
+          renda: { ...mes.renda, real: rendaAtualizada },
+        };
+      }),
+    );
+  }
+
+  // campo: "previsto" | "real" | "inicial" | "final"
+  function atualizarSaldo(campo, novoValor) {
     setListaMeses(
       listaMeses.map((mes) =>
         mes.ano === mesAtual.ano && mes.mesNum === mesAtual.mesNum
-          ? { ...mes, renda: novoValor }
+          ? { ...mes, saldo: { ...mes.saldo, [campo]: novoValor } }
           : mes,
       ),
     );
@@ -124,7 +141,11 @@ function App() {
       ano: novoAno,
       mesNum: novoMesNum,
       mes: NOMES_MESES[novoMesNum - 1],
-      renda: ultimoMes.renda,
+      renda: {
+        projetada: { ...ultimoMes.renda.projetada },
+        real: { fixa: 0, extra: 0, total: 0 },
+      },
+      saldo: { previsto: 0, real: 0, inicial: ultimoMes.saldo.final, final: 0 },
       categorias: ultimoMes.categorias.map((cat) => ({
         nome: cat.nome,
         itens: cat.itens.map((item) => ({
@@ -154,9 +175,9 @@ function App() {
     mesAtual,
     categorias,
     renda,
+    saldo,
     totalGastos,
     totalEstimado,
-    saldo,
   };
   const navegacaoDashboard = {
     anosDisponiveis,
@@ -169,7 +190,7 @@ function App() {
     criarProximoMes,
     ehUltimoMesGlobal,
   };
-  const acoesDashboard = { atualizarRenda, atualizarItem };
+  const acoesDashboard = { atualizarRenda, atualizarSaldo, atualizarItem };
 
   return (
     <div className="app-layout">

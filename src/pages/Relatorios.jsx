@@ -3,7 +3,10 @@ function Relatorios({ listaMeses }) {
 
   const resumoPorAno = anos.map((ano) => {
     const mesesDoAno = listaMeses.filter((mes) => mes.ano === ano);
-    const rendaTotal = mesesDoAno.reduce((soma, mes) => soma + mes.renda, 0);
+    const rendaTotal = mesesDoAno.reduce(
+      (soma, mes) => soma + mes.renda.real.total,
+      0,
+    );
     const gastoTotal = mesesDoAno.reduce(
       (soma, mes) =>
         soma + mes.categorias.reduce((s, cat) => s + cat.totalReal, 0),

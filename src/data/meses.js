@@ -1,10 +1,27 @@
-// Dados reais (renda real e detalhamento estimado x real) importados da planilha
+// Dados reais importados da planilha: renda (fixa/extra, projetada/real) e saldo (previsto/real, inicial/final)
 export const meses = [
   {
     ano: 2025,
     mesNum: 2,
     mes: "Fevereiro",
-    renda: 2468,
+    renda: {
+      projetada: {
+        fixa: 2500,
+        extra: 0,
+        total: 2500,
+      },
+      real: {
+        fixa: 2468,
+        extra: 0,
+        total: 2468,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 930,
+      inicial: 2197.28,
+      final: 930.24,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -228,7 +245,24 @@ export const meses = [
     ano: 2025,
     mesNum: 3,
     mes: "Março",
-    renda: 2611,
+    renda: {
+      projetada: {
+        fixa: 2500,
+        extra: 0,
+        total: 2500,
+      },
+      real: {
+        fixa: 2611,
+        extra: 0,
+        total: 2611,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 1010,
+      inicial: 930.24,
+      final: 0,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -457,7 +491,24 @@ export const meses = [
     ano: 2025,
     mesNum: 4,
     mes: "Abril",
-    renda: 2460,
+    renda: {
+      projetada: {
+        fixa: 2500,
+        extra: 0,
+        total: 2500,
+      },
+      real: {
+        fixa: 2460,
+        extra: 0,
+        total: 2460,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 1106,
+      inicial: 1010,
+      final: 0,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -686,7 +737,24 @@ export const meses = [
     ano: 2025,
     mesNum: 5,
     mes: "Maio",
-    renda: 2346,
+    renda: {
+      projetada: {
+        fixa: 2500,
+        extra: 0,
+        total: 2500,
+      },
+      real: {
+        fixa: 2346,
+        extra: 0,
+        total: 2346,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 715.29,
+      inicial: 1106,
+      final: 0,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -920,7 +988,24 @@ export const meses = [
     ano: 2025,
     mesNum: 6,
     mes: "Junho",
-    renda: 0,
+    renda: {
+      projetada: {
+        fixa: 0,
+        extra: 0,
+        total: 0,
+      },
+      real: {
+        fixa: 0,
+        extra: 0,
+        total: 0,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 1057,
+      inicial: 0,
+      final: 0,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -1144,7 +1229,24 @@ export const meses = [
     ano: 2025,
     mesNum: 7,
     mes: "Julho",
-    renda: 2417,
+    renda: {
+      projetada: {
+        fixa: 2500,
+        extra: 0,
+        total: 2500,
+      },
+      real: {
+        fixa: 2417,
+        extra: 0,
+        total: 2417,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 820,
+      inicial: 1057,
+      final: 820,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -1363,7 +1465,24 @@ export const meses = [
     ano: 2025,
     mesNum: 8,
     mes: "Agosto",
-    renda: 2662,
+    renda: {
+      projetada: {
+        fixa: 2500,
+        extra: 0,
+        total: 2500,
+      },
+      real: {
+        fixa: 2662,
+        extra: 0,
+        total: 2662,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 1269,
+      inicial: 820,
+      final: 1269,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -1582,7 +1701,24 @@ export const meses = [
     ano: 2025,
     mesNum: 9,
     mes: "Setembro",
-    renda: 2613,
+    renda: {
+      projetada: {
+        fixa: 2400,
+        extra: 0,
+        total: 2400,
+      },
+      real: {
+        fixa: 2613,
+        extra: 0,
+        total: 2613,
+      },
+    },
+    saldo: {
+      previsto: 1200,
+      real: 1421.37,
+      inicial: 1269,
+      final: 1421.37,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -1801,7 +1937,24 @@ export const meses = [
     ano: 2025,
     mesNum: 10,
     mes: "Outubro",
-    renda: 2551,
+    renda: {
+      projetada: {
+        fixa: 2400,
+        extra: 0,
+        total: 2400,
+      },
+      real: {
+        fixa: 2551,
+        extra: 0,
+        total: 2551,
+      },
+    },
+    saldo: {
+      previsto: 1300,
+      real: 1235,
+      inicial: 1421.37,
+      final: 1235,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -2020,7 +2173,24 @@ export const meses = [
     ano: 2025,
     mesNum: 11,
     mes: "Novembro",
-    renda: 3739,
+    renda: {
+      projetada: {
+        fixa: 2400,
+        extra: 0,
+        total: 2400,
+      },
+      real: {
+        fixa: 2401,
+        extra: 1338,
+        total: 3739,
+      },
+    },
+    saldo: {
+      previsto: 1400,
+      real: 918,
+      inicial: 1235,
+      final: 918,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -2244,7 +2414,24 @@ export const meses = [
     ano: 2025,
     mesNum: 12,
     mes: "Dezembro",
-    renda: 10549,
+    renda: {
+      projetada: {
+        fixa: 2400,
+        extra: 0,
+        total: 2400,
+      },
+      real: {
+        fixa: 7547,
+        extra: 3002,
+        total: 10549,
+      },
+    },
+    saldo: {
+      previsto: 1400,
+      real: 0,
+      inicial: 918,
+      final: 1800,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -2468,7 +2655,24 @@ export const meses = [
     ano: 2026,
     mesNum: 1,
     mes: "Janeiro",
-    renda: 2000,
+    renda: {
+      projetada: {
+        fixa: 2100,
+        extra: 0,
+        total: 2100,
+      },
+      real: {
+        fixa: 2000,
+        extra: 0,
+        total: 2000,
+      },
+    },
+    saldo: {
+      previsto: 2000,
+      real: 1814,
+      inicial: 1800,
+      final: 1814,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -2687,7 +2891,24 @@ export const meses = [
     ano: 2026,
     mesNum: 2,
     mes: "Fevereiro",
-    renda: 2620,
+    renda: {
+      projetada: {
+        fixa: 2100,
+        extra: 0,
+        total: 2100,
+      },
+      real: {
+        fixa: 2620,
+        extra: 0,
+        total: 2620,
+      },
+    },
+    saldo: {
+      previsto: 2000,
+      real: 2220,
+      inicial: 1814,
+      final: 2220,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -2911,7 +3132,24 @@ export const meses = [
     ano: 2026,
     mesNum: 3,
     mes: "Março",
-    renda: 2118,
+    renda: {
+      projetada: {
+        fixa: 2200,
+        extra: 0,
+        total: 2200,
+      },
+      real: {
+        fixa: 2118,
+        extra: 0,
+        total: 2118,
+      },
+    },
+    saldo: {
+      previsto: 2000,
+      real: 2143.87,
+      inicial: 2220,
+      final: 2143.87,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -3135,7 +3373,24 @@ export const meses = [
     ano: 2026,
     mesNum: 4,
     mes: "Abril",
-    renda: 2152,
+    renda: {
+      projetada: {
+        fixa: 2200,
+        extra: 0,
+        total: 2200,
+      },
+      real: {
+        fixa: 2152,
+        extra: 0,
+        total: 2152,
+      },
+    },
+    saldo: {
+      previsto: 2000,
+      real: 2434.69,
+      inicial: 2143.87,
+      final: 2434.69,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -3359,7 +3614,24 @@ export const meses = [
     ano: 2026,
     mesNum: 5,
     mes: "Maio",
-    renda: 2208,
+    renda: {
+      projetada: {
+        fixa: 2200,
+        extra: 0,
+        total: 2200,
+      },
+      real: {
+        fixa: 2208,
+        extra: 0,
+        total: 2208,
+      },
+    },
+    saldo: {
+      previsto: 2200,
+      real: 2155.66,
+      inicial: 2434.69,
+      final: 2155.66,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -3588,7 +3860,24 @@ export const meses = [
     ano: 2026,
     mesNum: 6,
     mes: "Junho",
-    renda: 1913,
+    renda: {
+      projetada: {
+        fixa: 2100,
+        extra: 0,
+        total: 2100,
+      },
+      real: {
+        fixa: 1913,
+        extra: 0,
+        total: 1913,
+      },
+    },
+    saldo: {
+      previsto: 2100,
+      real: 0,
+      inicial: 2155.66,
+      final: 0,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -3817,7 +4106,24 @@ export const meses = [
     ano: 2026,
     mesNum: 7,
     mes: "Julho",
-    renda: 922,
+    renda: {
+      projetada: {
+        fixa: 2100,
+        extra: 0,
+        total: 2100,
+      },
+      real: {
+        fixa: 922,
+        extra: 0,
+        total: 922,
+      },
+    },
+    saldo: {
+      previsto: 2100,
+      real: 0,
+      inicial: 0,
+      final: 1142,
+    },
     categorias: [
       {
         nome: "Moradia",
@@ -4046,7 +4352,24 @@ export const meses = [
     ano: 2026,
     mesNum: 8,
     mes: "Agosto",
-    renda: 312,
+    renda: {
+      projetada: {
+        fixa: 0,
+        extra: 800,
+        total: 800,
+      },
+      real: {
+        fixa: 0,
+        extra: 312,
+        total: 312,
+      },
+    },
+    saldo: {
+      previsto: 1500,
+      real: 0,
+      inicial: 1142,
+      final: 0,
+    },
     categorias: [
       {
         nome: "Moradia",

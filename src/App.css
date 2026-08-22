@@ -346,3 +346,281 @@
 .botao-perigo:hover {
   opacity: 0.9;
 }
+
+/* =========================================
+   VISÃO GERAL: renda (fixa/extra, projetada/real) + saldo (previsto/real, inicial/final)
+========================================= */
+
+.rendas-comparativo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.bloco-renda h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--verde);
+}
+
+.bloco-renda .linha-total {
+  border-top: 1px solid rgba(38, 51, 43, 0.2);
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.saldos-comparativo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(38, 51, 43, 0.15);
+}
+
+.totais-gastos {
+  padding-top: 12px;
+  border-top: 1px solid rgba(38, 51, 43, 0.15);
+}
+
+/* =========================================
+   AJUSTES DE LEGIBILIDADE E VIDA VISUAL
+   (sobrescreve tamanhos/estilos definidos acima)
+========================================= */
+
+/* Ponto 5: letras do detalhamento de gastos maiores */
+.categoria-cabecalho h4 {
+  font-size: 19px;
+}
+
+.categoria-totais {
+  font-size: 13px;
+}
+
+.tabela-itens {
+  font-size: 15px;
+}
+
+.tabela-itens th {
+  font-size: 12px;
+}
+
+.tabela-itens td {
+  padding: 7px 6px;
+}
+
+/* Ponto 6: input de valores com cara de campo de verdade, não mais "invisível" */
+.tabela-itens input {
+  font-size: 15px;
+  font-weight: 700;
+  background-color: rgba(240, 239, 227, 0.6);
+  border: 1px solid rgba(38, 51, 43, 0.2);
+  border-radius: 5px;
+  padding: 5px 8px;
+  min-width: 70px;
+}
+
+.tabela-itens input:hover {
+  border-color: var(--dourado);
+}
+
+.tabela-itens input:focus {
+  background-color: rgba(201, 162, 75, 0.2);
+  border-color: var(--dourado);
+}
+
+/* Ponto 7: sidebar com mais presença visual */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(
+    180deg,
+    var(--verde) 0%,
+    var(--forest-dark, #2b4032) 100%
+  );
+}
+
+.sidebar-menu a {
+  font-size: 17px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-menu a.link-ativo {
+  background-color: rgba(201, 162, 75, 0.15);
+  border-left: 3px solid var(--dourado);
+}
+
+/* Preenche o vazio da sidebar com uma "assinatura" no rodapé */
+.sidebar::after {
+  content: "Controle Financeiro · v1";
+  margin-top: auto;
+  font-size: 11px;
+  opacity: 0.5;
+  padding-top: 24px;
+}
+
+/* Ponto 8: título do mês e botões maiores/com mais presença */
+.cabecalho-mes h2 {
+  font-family: "Source Serif 4", serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+.cabecalho-mes button {
+  padding: 12px 22px;
+  font-size: 15px;
+}
+
+.botao-novo-mes {
+  background-color: var(--dourado) !important;
+  color: var(--tinta) !important;
+  border-color: var(--dourado) !important;
+}
+
+/* =========================================
+   AJUSTES DE LEGIBILIDADE E VIDA VISUAL
+========================================= */
+
+.categoria-cabecalho h4 {
+  font-size: 19px;
+}
+.categoria-totais {
+  font-size: 13px;
+}
+.tabela-itens {
+  font-size: 15px;
+  table-layout: fixed;
+}
+.tabela-itens th {
+  font-size: 12px;
+}
+.tabela-itens td {
+  padding: 7px 6px;
+}
+
+.tabela-itens th:first-child,
+.tabela-itens td:first-child {
+  width: 46%;
+}
+
+.tabela-itens th:not(:first-child),
+.tabela-itens td:not(:first-child) {
+  width: 27%;
+}
+
+.tabela-itens input {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: rgba(240, 239, 227, 0.6);
+  border: 1px solid rgba(38, 51, 43, 0.2);
+  border-radius: 5px;
+  padding: 5px 6px;
+}
+
+.tabela-itens input:hover {
+  border-color: var(--dourado);
+}
+.tabela-itens input:focus {
+  background-color: rgba(201, 162, 75, 0.2);
+  border-color: var(--dourado);
+  outline: none;
+}
+
+.sidebar {
+  width: 280px;
+  background: linear-gradient(
+    180deg,
+    var(--verde) 0%,
+    var(--forest-dark, #2b4032) 100%
+  );
+}
+
+.sidebar-menu a {
+  font-size: 17px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.sidebar-menu a.link-ativo {
+  background-color: rgba(201, 162, 75, 0.15);
+  border-left: 3px solid var(--dourado);
+}
+
+.sidebar::after {
+  content: "Controle Financeiro · v1";
+  margin-top: auto;
+  font-size: 11px;
+  opacity: 0.5;
+  padding-top: 24px;
+}
+
+.cabecalho-mes h2 {
+  font-family: "Source Serif 4", serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+.cabecalho-mes button {
+  padding: 12px 22px;
+  font-size: 15px;
+}
+
+.botao-novo-mes {
+  background-color: var(--dourado) !important;
+  color: var(--tinta) !important;
+  border-color: var(--dourado) !important;
+}
+
+/* =========================================
+   REMOVE SETINHAS DOS INPUTS NUMÉRICOS + UNIFICA VISUAL
+========================================= */
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Inputs da Visão Geral (Renda, Saldo) ganham o mesmo visual dos inputs de item */
+.card input {
+  background-color: rgba(240, 239, 227, 0.6);
+  border: 1px solid rgba(38, 51, 43, 0.2);
+  border-radius: 5px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+
+.card input:hover {
+  border-color: var(--dourado);
+}
+
+.card input:focus {
+  background-color: rgba(201, 162, 75, 0.2);
+  border-color: var(--dourado);
+}
