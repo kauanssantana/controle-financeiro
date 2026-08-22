@@ -1,14 +1,18 @@
 /* Layout Principal (App Shell) */
 .app-layout {
   display: flex;
-  height: 100vh; /* Ocupa 100% da altura da tela */
+  height: 100vh;
   overflow: hidden;
 }
 
 /* Barra Lateral */
 .sidebar {
-  width: 250px;
-  background-color: var(--verde);
+  width: 280px;
+  background: linear-gradient(
+    180deg,
+    var(--verde) 0%,
+    var(--forest-dark, #2b4032) 100%
+  );
   color: var(--papel);
   padding: 32px 24px;
   display: flex;
@@ -30,13 +34,56 @@
   font-weight: 600;
 }
 
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaçamento entre o ícone e o texto */
+  color: inherit;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-menu a.link-ativo {
+  background-color: rgba(201, 162, 75, 0.15);
+  border-left: 3px solid var(--dourado);
+}
+
+/* Tamanho padronizado para todos os ícones da barra lateral */
+.icone-sidebar {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* RODAPÉ AUTOMÁTICO (Sua assinatura) */
+.sidebar::after {
+  content: "Copyright (c) 2026 Kauan Santana Almeida.\A Todos os direitos reservados.";
+  white-space: pre-wrap; /* Permite a quebra de linha com \A */
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--papel);
+  opacity: 0.5;
+  padding-top: 24px;
+  line-height: 1.5;
+}
+
 /* Área de Conteúdo */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 32px 48px;
-  overflow-y: auto; /* Permite rolar apenas o conteúdo, a sidebar fica fixa */
+  overflow-y: auto;
 }
 
 /* Cabeçalho da página (onde fica a navegação de meses) */
@@ -49,8 +96,14 @@
   border-bottom: 2px solid var(--tinta);
 }
 
+.cabecalho-mes h2 {
+  font-family: "Source Serif 4", serif;
+  font-size: 30px;
+  margin: 0;
+}
+
 .cabecalho-mes button {
-  padding: 8px 16px;
+  padding: 12px 22px;
   cursor: pointer;
   background-color: transparent;
   color: var(--tinta);
@@ -58,6 +111,7 @@
   border-radius: 4px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
+  font-size: 15px;
   transition: all 0.2s;
 }
 
@@ -73,13 +127,16 @@
   cursor: not-allowed;
 }
 
+.botao-novo-mes {
+  background-color: var(--dourado) !important;
+  color: var(--tinta) !important;
+  border-color: var(--dourado) !important;
+}
+
 /* O Dashboard Grid (A estrutura dos blocos) */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(
-    12,
-    1fr
-  ); /* Divide a tela em 12 colunas imaginárias */
+  grid-template-columns: repeat(12, 1fr);
   gap: 24px;
 }
 
@@ -89,86 +146,94 @@
   border: 1px solid var(--tinta);
   border-radius: 8px;
   padding: 24px;
-  /* Um sombreado leve e duro para dar cara de bloco de notas/editorial */
   box-shadow: 4px 4px 0px var(--verde);
 }
 
 /* Definindo o tamanho de cada cartão no grid */
 .card-resumo {
-  grid-column: span 4; /* Ocupa 4 das 12 colunas (menorzinho) */
+  grid-column: span 4;
 }
 
 .card-grafico {
-  grid-column: span 8; /* Ocupa 8 das 12 colunas (mais largo) */
+  grid-column: span 8;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .card-lista {
-  grid-column: span 12; /* Ocupa a linha inteira */
+  grid-column: span 12;
+}
+
+.card-comparativo {
+  grid-column: span 12;
+}
+
+/* =========================================
+   PADRONIZAÇÃO DOS TÍTULOS (Visão Geral, Gráficos, etc)
+========================================= */
+.card h3 {
+  font-family: "Source Serif 4", serif;
+  font-size: 22px !important; /* Tamanho maior para todos os títulos */
+  color: var(--tinta);
+  margin: 0 0 24px 0 !important;
+  border-bottom: 2px solid var(--terracota);
+  padding-bottom: 8px;
+  display: inline-block;
+
+  /* A mágica para a linha não esticar: */
+  width: max-content;
+  align-self: flex-start;
 }
 
 /* =========================================
    ESTILOS DE CADERNO (Inputs e Listas)
 ========================================= */
 
-/* Transforma as linhas de texto em "linhas de caderno" */
 .card p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 0 12px 0;
   padding-bottom: 8px;
-  /* Cria uma pauta (linha) bem suave usando o seu verde com transparência */
   border-bottom: 1px solid rgba(61, 90, 69, 0.2);
   font-size: 16px;
   font-weight: 600;
 }
 
-/* Remove a linha do último item para o card ficar com acabamento perfeito */
 .card p:last-child {
   border-bottom: none;
   margin-bottom: 0;
 }
 
-/* A mágica nos campos de digitação */
+/* Inputs da Visão Geral (Renda, Saldo) ganham o mesmo visual dos inputs de item */
 .card input {
-  background-color: transparent;
-  border: none;
+  background-color: rgba(240, 239, 227, 0.6);
+  border: 1px solid rgba(38, 51, 43, 0.2);
   color: var(--tinta);
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  text-align: right; /* Alinha os números à direita, padrão financeiro */
+  text-align: right;
   width: 100px;
-  padding: 4px 8px;
-  outline: none; /* Tira aquela borda grossa do navegador ao clicar */
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  padding: 6px 10px;
+  outline: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
-/* Destaque sutil quando você clica para digitar um valor */
+.card input:hover {
+  border-color: var(--dourado);
+}
+
 .card input:focus {
-  /* Fundo dourado super transparente para indicar onde você está digitando */
-  background-color: rgba(201, 162, 75, 0.15);
-}
-
-/* Ajuste no título h3 dentro dos cards para dar um respiro */
-.card h3 {
-  margin-bottom: 24px;
-  border-bottom: 2px solid var(--terracota);
-  padding-bottom: 8px;
-  display: inline-block;
+  background-color: rgba(201, 162, 75, 0.2);
+  border-color: var(--dourado);
 }
 
 /* =========================================
    NOVOS ESTILOS: categorias com itens + card comparativo
 ========================================= */
-
-.card-comparativo {
-  grid-column: span 12;
-}
 
 .linha-positiva strong {
   color: var(--verde);
@@ -206,11 +271,11 @@
 .categoria-cabecalho h4 {
   margin: 0;
   color: var(--verde);
-  font-size: 16px;
+  font-size: 19px;
 }
 
 .categoria-totais {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--tinta);
   opacity: 0.65;
 }
@@ -218,12 +283,13 @@
 .tabela-itens {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
+  table-layout: fixed;
 }
 
 .tabela-itens th {
   text-align: left;
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--tinta);
@@ -233,39 +299,51 @@
 }
 
 .tabela-itens td {
-  padding: 3px 4px;
+  padding: 7px 6px;
   border-bottom: 1px solid rgba(38, 51, 43, 0.08);
 }
 
+.tabela-itens th:first-child,
+.tabela-itens td:first-child {
+  width: 46%;
+}
+
+.tabela-itens th:not(:first-child),
+.tabela-itens td:not(:first-child) {
+  width: 27%;
+}
+
 .tabela-itens input {
+  box-sizing: border-box;
   width: 100%;
-  background: transparent;
-  border: none;
-  text-align: right;
-  font-family: "Inter", sans-serif;
-  font-size: 13px;
-  color: var(--tinta);
-  padding: 2px 4px;
-  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: rgba(240, 239, 227, 0.6);
+  border: 1px solid rgba(38, 51, 43, 0.2);
+  border-radius: 5px;
+  padding: 5px 6px;
+}
+
+.tabela-itens input:hover {
+  border-color: var(--dourado);
 }
 
 .tabela-itens input:focus {
+  background-color: rgba(201, 162, 75, 0.2);
+  border-color: var(--dourado);
   outline: none;
-  background-color: rgba(201, 162, 75, 0.15);
 }
 
 /* =========================================
    ABAS DE ANO (Navegação 2025 / 2026 / ...)
 ========================================= */
 
-/* Container das abas, uma ao lado da outra */
 .abas-ano {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-/* Cada aba: formato de "pílula", vazia por padrão */
 .aba-ano {
   border: 1px solid rgba(38, 51, 43, 0.25);
   background: transparent;
@@ -277,27 +355,10 @@
   cursor: pointer;
 }
 
-/* Aba do ano selecionado no momento: preenchida em verde */
 .aba-ano.ativa {
   background: var(--verde);
   border-color: var(--verde);
   color: #fff;
-}
-
-/* =========================================
-   NAVEGAÇÃO DA SIDEBAR (React Router)
-========================================= */
-
-.sidebar-menu a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  padding: 8px 0;
-}
-
-.sidebar-menu a.link-ativo {
-  color: var(--dourado);
-  font-weight: 700;
 }
 
 /* =========================================
@@ -348,7 +409,7 @@
 }
 
 /* =========================================
-   VISÃO GERAL: renda (fixa/extra, projetada/real) + saldo (previsto/real, inicial/final)
+   VISÃO GERAL: rendas e saldos
 ========================================= */
 
 .rendas-comparativo {
@@ -387,240 +448,15 @@
 }
 
 /* =========================================
-   AJUSTES DE LEGIBILIDADE E VIDA VISUAL
-   (sobrescreve tamanhos/estilos definidos acima)
-========================================= */
-
-/* Ponto 5: letras do detalhamento de gastos maiores */
-.categoria-cabecalho h4 {
-  font-size: 19px;
-}
-
-.categoria-totais {
-  font-size: 13px;
-}
-
-.tabela-itens {
-  font-size: 15px;
-}
-
-.tabela-itens th {
-  font-size: 12px;
-}
-
-.tabela-itens td {
-  padding: 7px 6px;
-}
-
-/* Ponto 6: input de valores com cara de campo de verdade, não mais "invisível" */
-.tabela-itens input {
-  font-size: 15px;
-  font-weight: 700;
-  background-color: rgba(240, 239, 227, 0.6);
-  border: 1px solid rgba(38, 51, 43, 0.2);
-  border-radius: 5px;
-  padding: 5px 8px;
-  min-width: 70px;
-}
-
-.tabela-itens input:hover {
-  border-color: var(--dourado);
-}
-
-.tabela-itens input:focus {
-  background-color: rgba(201, 162, 75, 0.2);
-  border-color: var(--dourado);
-}
-
-/* Ponto 7: sidebar com mais presença visual */
-.sidebar {
-  width: 280px;
-  background: linear-gradient(
-    180deg,
-    var(--verde) 0%,
-    var(--forest-dark, #2b4032) 100%
-  );
-}
-
-.sidebar-menu a {
-  font-size: 17px;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border-left: 3px solid transparent;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.sidebar-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.sidebar-menu a.link-ativo {
-  background-color: rgba(201, 162, 75, 0.15);
-  border-left: 3px solid var(--dourado);
-}
-
-/* Preenche o vazio da sidebar com uma "assinatura" no rodapé */
-.sidebar::after {
-  content: "Controle Financeiro · v1";
-  margin-top: auto;
-  font-size: 11px;
-  opacity: 0.5;
-  padding-top: 24px;
-}
-
-/* Ponto 8: título do mês e botões maiores/com mais presença */
-.cabecalho-mes h2 {
-  font-family: "Source Serif 4", serif;
-  font-size: 30px;
-  margin: 0;
-}
-
-.cabecalho-mes button {
-  padding: 12px 22px;
-  font-size: 15px;
-}
-
-.botao-novo-mes {
-  background-color: var(--dourado) !important;
-  color: var(--tinta) !important;
-  border-color: var(--dourado) !important;
-}
-
-/* =========================================
-   AJUSTES DE LEGIBILIDADE E VIDA VISUAL
-========================================= */
-
-.categoria-cabecalho h4 {
-  font-size: 19px;
-}
-.categoria-totais {
-  font-size: 13px;
-}
-.tabela-itens {
-  font-size: 15px;
-  table-layout: fixed;
-}
-.tabela-itens th {
-  font-size: 12px;
-}
-.tabela-itens td {
-  padding: 7px 6px;
-}
-
-.tabela-itens th:first-child,
-.tabela-itens td:first-child {
-  width: 46%;
-}
-
-.tabela-itens th:not(:first-child),
-.tabela-itens td:not(:first-child) {
-  width: 27%;
-}
-
-.tabela-itens input {
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 15px;
-  font-weight: 700;
-  background-color: rgba(240, 239, 227, 0.6);
-  border: 1px solid rgba(38, 51, 43, 0.2);
-  border-radius: 5px;
-  padding: 5px 6px;
-}
-
-.tabela-itens input:hover {
-  border-color: var(--dourado);
-}
-.tabela-itens input:focus {
-  background-color: rgba(201, 162, 75, 0.2);
-  border-color: var(--dourado);
-  outline: none;
-}
-
-.sidebar {
-  width: 280px;
-  background: linear-gradient(
-    180deg,
-    var(--verde) 0%,
-    var(--forest-dark, #2b4032) 100%
-  );
-}
-
-.sidebar-menu a {
-  font-size: 17px;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border-left: 3px solid transparent;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.sidebar-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-.sidebar-menu a.link-ativo {
-  background-color: rgba(201, 162, 75, 0.15);
-  border-left: 3px solid var(--dourado);
-}
-
-.sidebar::after {
-  content: "Controle Financeiro · v1";
-  margin-top: auto;
-  font-size: 11px;
-  opacity: 0.5;
-  padding-top: 24px;
-}
-
-.cabecalho-mes h2 {
-  font-family: "Source Serif 4", serif;
-  font-size: 30px;
-  margin: 0;
-}
-
-.cabecalho-mes button {
-  padding: 12px 22px;
-  font-size: 15px;
-}
-
-.botao-novo-mes {
-  background-color: var(--dourado) !important;
-  color: var(--tinta) !important;
-  border-color: var(--dourado) !important;
-}
-
-/* =========================================
    REMOVE SETINHAS DOS INPUTS NUMÉRICOS + UNIFICA VISUAL
 ========================================= */
 
-/* Chrome, Edge, Safari */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
-}
-
-/* Inputs da Visão Geral (Renda, Saldo) ganham o mesmo visual dos inputs de item */
-.card input {
-  background-color: rgba(240, 239, 227, 0.6);
-  border: 1px solid rgba(38, 51, 43, 0.2);
-  border-radius: 5px;
-  padding: 6px 10px;
-  box-sizing: border-box;
-}
-
-.card input:hover {
-  border-color: var(--dourado);
-}
-
-.card input:focus {
-  background-color: rgba(201, 162, 75, 0.2);
-  border-color: var(--dourado);
 }
