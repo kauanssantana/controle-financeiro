@@ -34,6 +34,32 @@ function GraficoPizza({ categorias }) {
   const dados = categorias.filter((cat) => cat.totalReal > 0);
   const totalGasto = dados.reduce((acc, cat) => acc + cat.totalReal, 0);
 
+  // NOVO: Lógica para varrer todos os itens de todas as categorias e achar o maior
+  let todosOsItens = [];
+  categorias.forEach((cat) => {
+    if (cat.itens) {
+      cat.itens.forEach((item) => {
+        if (item.real > 0) {
+          todosOsItens.push({
+            nome: item.nome,
+            valor: item.real,
+            categoria: cat.nome,
+          });
+        }
+      });
+    }
+  });
+
+  // Ordena os itens do maior para o menor
+  todosOsItens.sort((a, b) => b.valor - a.valor);
+
+  // Pega o primeiro item da lista (o mais caro)
+  const topItem = todosOsItens.length > 0 ? todosOsItens[0] : null;
+  const topItemPercent =
+    topItem && totalGasto > 0
+      ? ((topItem.valor / totalGasto) * 100).toFixed(1)
+      : 0;
+
   if (dados.length === 0) {
     return (
       <div
@@ -44,7 +70,6 @@ function GraficoPizza({ categorias }) {
           width: "100%",
         }}
       >
-        {/* Título padronizado globalmente pelo App.css */}
         <h3>Distribuição de Gastos Reais</h3>
         <p className="sem-dados">Sem gastos lançados neste mês ainda.</p>
       </div>
@@ -60,8 +85,30 @@ function GraficoPizza({ categorias }) {
         width: "100%",
       }}
     >
-      {/* Título limpo e padronizado! */}
       <h3>Distribuição de Gastos Reais</h3>
+
+      {/* NOVO: Destaque do Maior ITEM do mês com o layout alinhado pelas pontas */}
+      {topItem && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            margin: "-12px 0 24px 0",
+            paddingBottom: "8px",
+            borderBottom: "1px solid rgba(61, 90, 69, 0.2)",
+            fontSize: "15px",
+            fontWeight: 600,
+            color: "var(--tinta)",
+            opacity: 0.9,
+          }}
+        >
+          <span>💡 Maior gasto:</span>
+          <span style={{ color: "var(--terracota)", fontWeight: 700 }}>
+            {topItem.nome} ({topItemPercent}%)
+          </span>
+        </div>
+      )}
 
       <div
         style={{
@@ -94,7 +141,7 @@ function GraficoPizza({ categorias }) {
             </Pie>
           </PieChart>
 
-          {/* O TEXTO DENTRO DA ROSCA - COM QUEBRA DE LINHA INTELIGENTE */}
+          {/* O TEXTO DENTRO DA ROSCA */}
           <div
             style={{
               position: "absolute",
@@ -103,7 +150,7 @@ function GraficoPizza({ categorias }) {
               transform: "translate(-50%, -50%)",
               textAlign: "center",
               pointerEvents: "none",
-              width: "160px", // Margem de segurança para o anel
+              width: "160px",
               color: "var(--tinta)",
             }}
           >
@@ -114,12 +161,11 @@ function GraficoPizza({ categorias }) {
                     fontSize: "18px",
                     fontWeight: 700,
                     marginBottom: "4px",
-                    lineHeight: "1.1", // Mantém as linhas da quebra juntinhas
-                    wordBreak: "break-word", // Força a quebra
+                    lineHeight: "1.1",
+                    wordBreak: "break-word",
                     overflowWrap: "break-word",
                   }}
                 >
-                  {/* Troca "/" por "/ " invisível para garantir a quebra */}
                   {dados[indiceAtivo].nome.replace("/", "/ ")}
                 </div>
                 <div style={{ fontSize: "17px", fontWeight: 500 }}>
