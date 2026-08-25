@@ -2,14 +2,14 @@ import { useState } from "react";
 import { PieChart, Pie, Cell, Sector } from "recharts";
 
 const CORES = [
-  "#3d5a45",
-  "#c9a24b",
-  "#a65d3f",
-  "#6b8f71",
-  "#8a9b6e",
-  "#5c7a8a",
-  "#b0755f",
-  "#7a5c8a",
+  "#16233f",
+  "#1f8a8a",
+  "#5b6472",
+  "#c1443d",
+  "#3c5a78",
+  "#8aa6c9",
+  "#274060",
+  "#9aa5b1",
 ];
 
 function fatiaDestacada(props) {

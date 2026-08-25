@@ -37,7 +37,7 @@ function GraficoEvolucaoSaldo({ listaMeses }) {
         <Line
           type="monotone"
           dataKey="Saldo"
-          stroke="#3d5a45"
+          stroke="#16233f"
           strokeWidth={2.5}
           dot={{ r: 3 }}
         />

@@ -34,8 +34,8 @@ function GraficoEstimadoReal({ categorias }) {
         <YAxis tick={{ fontSize: 11 }} />
         <Tooltip formatter={(value) => `R$ ${value.toFixed(2)}`} />
         <Legend />
-        <Bar dataKey="Estimado" fill="#c9a24b" radius={[4, 4, 0, 0]} />
-        <Bar dataKey="Real" fill="#3d5a45" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="Estimado" fill="#1f8a8a" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="Real" fill="#16233f" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );

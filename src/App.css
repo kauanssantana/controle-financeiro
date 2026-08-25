@@ -10,10 +10,10 @@
   width: 280px;
   background: linear-gradient(
     180deg,
-    var(--verde) 0%,
-    var(--forest-dark, #2b4032) 100%
+    var(--cor-primaria) 0%,
+    var(--cor-primaria-clara) 100%
   );
-  color: var(--papel);
+  color: var(--cor-fundo);
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
@@ -21,9 +21,9 @@
 }
 
 .sidebar h1 {
-  color: var(--dourado);
+  color: var(--cor-acento);
   font-size: 28px;
-  border-bottom: 1px solid var(--dourado);
+  border-bottom: 1px solid var(--cor-acento);
   padding-bottom: 16px;
 }
 
@@ -37,7 +37,7 @@
 .sidebar-menu a {
   display: flex;
   align-items: center;
-  gap: 12px; /* Espaçamento entre o ícone e o texto */
+  gap: 12px;
   color: inherit;
   text-decoration: none;
   font-size: 17px;
@@ -54,30 +54,27 @@
 }
 
 .sidebar-menu a.link-ativo {
-  background-color: rgba(201, 162, 75, 0.15);
-  border-left: 3px solid var(--dourado);
+  background-color: rgba(31, 138, 138, 0.12);
+  border-left: 3px solid var(--cor-acento);
 }
 
-/* Tamanho padronizado para todos os ícones da barra lateral */
 .icone-sidebar {
   width: 22px;
   height: 22px;
   object-fit: contain;
 }
 
-/* RODAPÉ AUTOMÁTICO (Sua assinatura) */
 .sidebar::after {
   content: "Copyright (c) 2026 Kauan Santana Almeida.\A Todos os direitos reservados.";
-  white-space: pre-wrap; /* Permite a quebra de linha com \A */
+  white-space: pre-wrap;
   margin-top: auto;
   font-size: 12px;
-  color: var(--papel);
+  color: var(--cor-fundo);
   opacity: 0.5;
   padding-top: 24px;
   line-height: 1.5;
 }
 
-/* Área de Conteúdo */
 .main-content {
   flex: 1;
   display: flex;
@@ -86,18 +83,17 @@
   overflow-y: auto;
 }
 
-/* Cabeçalho da página (onde fica a navegação de meses) */
 .cabecalho-mes {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--tinta);
+  border-bottom: 2px solid var(--cor-texto);
 }
 
 .cabecalho-mes h2 {
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-size: 30px;
   margin: 0;
 }
@@ -106,8 +102,8 @@
   padding: 12px 22px;
   cursor: pointer;
   background-color: transparent;
-  color: var(--tinta);
-  border: 1px solid var(--tinta);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-texto);
   border-radius: 4px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
@@ -116,9 +112,9 @@
 }
 
 .cabecalho-mes button:hover:not(:disabled) {
-  background-color: var(--verde);
-  color: var(--papel);
-  border-color: var(--verde);
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  border-color: var(--cor-primaria);
 }
 
 .cabecalho-mes button:disabled {
@@ -128,28 +124,25 @@
 }
 
 .botao-novo-mes {
-  background-color: var(--dourado) !important;
-  color: var(--tinta) !important;
-  border-color: var(--dourado) !important;
+  background-color: var(--cor-acento) !important;
+  color: var(--cor-texto) !important;
+  border-color: var(--cor-acento) !important;
 }
 
-/* O Dashboard Grid (A estrutura dos blocos) */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
 }
 
-/* Estilo Base dos Cartões */
 .card {
-  background-color: var(--papel);
-  border: 1px solid var(--tinta);
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-texto);
   border-radius: 8px;
   padding: 24px;
-  box-shadow: 4px 4px 0px var(--verde);
+  box-shadow: 4px 4px 0px var(--cor-primaria);
 }
 
-/* Definindo o tamanho de cada cartão no grid */
 .card-resumo {
   grid-column: span 4;
 }
@@ -168,26 +161,17 @@
   grid-column: span 12;
 }
 
-/* =========================================
-   PADRONIZAÇÃO DOS TÍTULOS (Visão Geral, Gráficos, etc)
-========================================= */
 .card h3 {
-  font-family: "Source Serif 4", serif;
-  font-size: 22px !important; /* Tamanho maior para todos os títulos */
-  color: var(--tinta);
+  font-family: "Inter", sans-serif;
+  font-size: 22px !important;
+  color: var(--cor-texto);
   margin: 0 0 24px 0 !important;
-  border-bottom: 2px solid var(--terracota);
+  border-bottom: 2px solid var(--cor-negativo);
   padding-bottom: 8px;
   display: inline-block;
-
-  /* A mágica para a linha não esticar: */
   width: max-content;
   align-self: flex-start;
 }
-
-/* =========================================
-   ESTILOS DE CADERNO (Inputs e Listas)
-========================================= */
 
 .card p {
   display: flex;
@@ -195,7 +179,7 @@
   align-items: center;
   margin: 0 0 12px 0;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(61, 90, 69, 0.2);
+  border-bottom: 1px solid rgba(27, 36, 48, 0.12);
   font-size: 16px;
   font-weight: 600;
 }
@@ -205,11 +189,10 @@
   margin-bottom: 0;
 }
 
-/* Inputs da Visão Geral (Renda, Saldo) ganham o mesmo visual dos inputs de item */
 .card input {
-  background-color: rgba(240, 239, 227, 0.6);
-  border: 1px solid rgba(38, 51, 43, 0.2);
-  color: var(--tinta);
+  background-color: rgba(243, 245, 248, 0.8);
+  border: 1px solid rgba(27, 36, 48, 0.2);
+  color: var(--cor-texto);
   font-family: "Inter", sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -223,28 +206,24 @@
 }
 
 .card input:hover {
-  border-color: var(--dourado);
+  border-color: var(--cor-acento);
 }
 
 .card input:focus {
-  background-color: rgba(201, 162, 75, 0.2);
-  border-color: var(--dourado);
+  background-color: rgba(31, 138, 138, 0.15);
+  border-color: var(--cor-acento);
 }
 
-/* =========================================
-   NOVOS ESTILOS: categorias com itens + card comparativo
-========================================= */
-
 .linha-positiva strong {
-  color: var(--verde);
+  color: var(--cor-primaria);
 }
 
 .linha-negativa strong {
-  color: var(--terracota);
+  color: var(--cor-negativo);
 }
 
 .sem-dados {
-  color: var(--tinta);
+  color: var(--cor-texto);
   opacity: 0.6;
   font-size: 14px;
 }
@@ -256,7 +235,7 @@
 }
 
 .categoria-bloco {
-  border: 1px solid rgba(38, 51, 43, 0.15);
+  border: 1px solid rgba(27, 36, 48, 0.15);
   border-radius: 6px;
   padding: 12px 14px;
 }
@@ -270,13 +249,13 @@
 
 .categoria-cabecalho h4 {
   margin: 0;
-  color: var(--verde);
+  color: var(--cor-primaria);
   font-size: 19px;
 }
 
 .categoria-totais {
   font-size: 13px;
-  color: var(--tinta);
+  color: var(--cor-texto);
   opacity: 0.65;
 }
 
@@ -292,15 +271,15 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--tinta);
+  color: var(--cor-texto);
   opacity: 0.6;
   padding: 4px 4px;
-  border-bottom: 1px solid rgba(38, 51, 43, 0.15);
+  border-bottom: 1px solid rgba(27, 36, 48, 0.15);
 }
 
 .tabela-itens td {
   padding: 7px 6px;
-  border-bottom: 1px solid rgba(38, 51, 43, 0.08);
+  border-bottom: 1px solid rgba(27, 36, 48, 0.08);
 }
 
 .tabela-itens th:first-child,
@@ -318,25 +297,21 @@
   width: 100%;
   font-size: 15px;
   font-weight: 700;
-  background-color: rgba(240, 239, 227, 0.6);
-  border: 1px solid rgba(38, 51, 43, 0.2);
+  background-color: rgba(243, 245, 248, 0.8);
+  border: 1px solid rgba(27, 36, 48, 0.2);
   border-radius: 5px;
   padding: 5px 6px;
 }
 
 .tabela-itens input:hover {
-  border-color: var(--dourado);
+  border-color: var(--cor-acento);
 }
 
 .tabela-itens input:focus {
-  background-color: rgba(201, 162, 75, 0.2);
-  border-color: var(--dourado);
+  background-color: rgba(31, 138, 138, 0.15);
+  border-color: var(--cor-acento);
   outline: none;
 }
-
-/* =========================================
-   ABAS DE ANO (Navegação 2025 / 2026 / ...)
-========================================= */
 
 .abas-ano {
   display: flex;
@@ -345,9 +320,9 @@
 }
 
 .aba-ano {
-  border: 1px solid rgba(38, 51, 43, 0.25);
+  border: 1px solid rgba(27, 36, 48, 0.25);
   background: transparent;
-  color: var(--tinta);
+  color: var(--cor-texto);
   padding: 6px 18px;
   border-radius: 999px;
   font-size: 14px;
@@ -356,14 +331,10 @@
 }
 
 .aba-ano.ativa {
-  background: var(--verde);
-  border-color: var(--verde);
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
   color: #fff;
 }
-
-/* =========================================
-   PÁGINA: RELATÓRIOS
-========================================= */
 
 .tabela-relatorio-wrap {
   overflow-x: auto;
@@ -372,14 +343,14 @@
 .tabela-relatorio {
   width: 100%;
   border-collapse: collapse;
-  background: var(--papel-raised, #fff);
+  background: var(--cor-superficie);
 }
 
 .tabela-relatorio th,
 .tabela-relatorio td {
   text-align: left;
   padding: 10px 14px;
-  border-bottom: 1px solid rgba(38, 51, 43, 0.15);
+  border-bottom: 1px solid rgba(27, 36, 48, 0.15);
 }
 
 .tabela-relatorio th {
@@ -389,13 +360,9 @@
   opacity: 0.7;
 }
 
-/* =========================================
-   PÁGINA: CONFIGURAÇÕES
-========================================= */
-
 .botao-perigo {
   margin-top: 12px;
-  background: var(--terracota);
+  background: var(--cor-negativo);
   color: #fff;
   border: none;
   padding: 10px 18px;
@@ -408,27 +375,16 @@
   opacity: 0.9;
 }
 
-/* =========================================
-   VISÃO GERAL: rendas e saldos
-========================================= */
-
-.rendas-comparativo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
 .bloco-renda h4 {
   margin: 0 0 8px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--verde);
+  color: var(--cor-primaria);
 }
 
 .bloco-renda .linha-total {
-  border-top: 1px solid rgba(38, 51, 43, 0.2);
+  border-top: 1px solid rgba(27, 36, 48, 0.2);
   padding-top: 6px;
   margin-top: 4px;
 }
@@ -439,17 +395,13 @@
   gap: 16px;
   margin-bottom: 16px;
   padding-top: 12px;
-  border-top: 1px solid rgba(38, 51, 43, 0.15);
+  border-top: 1px solid rgba(27, 36, 48, 0.15);
 }
 
 .totais-gastos {
   padding-top: 12px;
-  border-top: 1px solid rgba(38, 51, 43, 0.15);
+  border-top: 1px solid rgba(27, 36, 48, 0.15);
 }
-
-/* =========================================
-   REMOVE SETINHAS DOS INPUTS NUMÉRICOS + UNIFICA VISUAL
-========================================= */
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -460,10 +412,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
-/* =========================================
-   PÁGINA RELATÓRIOS: títulos de seção + espaçamento entre blocos
-========================================= */
 
 .secao-relatorio-titulo {
   margin-top: 32px;
