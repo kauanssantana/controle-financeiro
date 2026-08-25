@@ -26,21 +26,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 99,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 8,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Internet", estimado: 99, real: 99 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 8 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 107,
@@ -48,21 +36,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete faculdade",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 5,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete faculdade", estimado: 100, real: 0 },
+          { nome: "Uber", estimado: 50, real: 5 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 5,
@@ -70,21 +46,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 0 },
+          { nome: "Lanche fora", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 0,
@@ -92,36 +56,12 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Rolê/Date",
-            estimado: 150,
-            real: 0,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 242,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Passagem",
-            estimado: 82,
-            real: 82,
-          },
-          {
-            nome: "Livro",
-            estimado: 100,
-            real: 55,
-          },
-          {
-            nome: "Viagem",
-            estimado: 132,
-            real: 135,
-          },
+          { nome: "Rolê/Date", estimado: 150, real: 0 },
+          { nome: "Beber", estimado: 150, real: 242 },
+          { nome: "Jogos", estimado: 200, real: 0 },
+          { nome: "Passagem", estimado: 82, real: 82 },
+          { nome: "Livro", estimado: 100, real: 55 },
+          { nome: "Viagem", estimado: 132, real: 135 },
         ],
         totalEstimado: 814,
         totalReal: 514,
@@ -129,26 +69,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Faculdade",
-            estimado: 400,
-            real: 383,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 240,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 0 },
+          { nome: "Faculdade", estimado: 400, real: 383 },
+          { nome: "Aposta esportiva", estimado: 120, real: 240 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 623,
@@ -156,36 +80,12 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 50,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 15,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Farmácia",
-            estimado: 50,
-            real: 15,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 32,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 50 },
+          { nome: "Vestimentas", estimado: 100, real: 15 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Farmácia", estimado: 50, real: 15 },
+          { nome: "Outros", estimado: 0, real: 32 },
         ],
         totalEstimado: 500,
         totalReal: 97,
@@ -193,26 +93,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 18,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 18 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 18,
@@ -220,21 +104,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 497,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 65,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 12,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 497 },
+          { nome: "Crédito no celular", estimado: 60, real: 65 },
+          { nome: "Família", estimado: 200, real: 12 },
         ],
         totalEstimado: 610,
         totalReal: 574,
@@ -267,21 +139,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 99,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 27,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Internet", estimado: 99, real: 99 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 27 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 126,
@@ -289,21 +149,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete faculdade",
-            estimado: 100,
-            real: 15,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete faculdade", estimado: 100, real: 15 },
+          { nome: "Uber", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 15,
@@ -311,21 +159,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 120,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 120 },
+          { nome: "Lanche fora", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 120,
@@ -333,41 +169,13 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 35,
-          },
-          {
-            nome: "Cinema",
-            estimado: 50,
-            real: 166,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 175,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 87,
-          },
-          {
-            nome: "Livro",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Viagem",
-            estimado: 132,
-            real: 0,
-          },
+          { nome: "Date", estimado: 200, real: 0 },
+          { nome: "Rolê", estimado: 200, real: 35 },
+          { nome: "Cinema", estimado: 50, real: 166 },
+          { nome: "Beber", estimado: 150, real: 175 },
+          { nome: "Jogos", estimado: 200, real: 87 },
+          { nome: "Livro", estimado: 100, real: 0 },
+          { nome: "Viagem", estimado: 132, real: 0 },
         ],
         totalEstimado: 1032,
         totalReal: 463,
@@ -375,26 +183,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 85,
-          },
-          {
-            nome: "Faculdade",
-            estimado: 400,
-            real: 383,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 177,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 85 },
+          { nome: "Faculdade", estimado: 400, real: 383 },
+          { nome: "Aposta esportiva", estimado: 120, real: 177 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 645,
@@ -402,31 +194,11 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 80,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 174,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 12,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 80 },
+          { nome: "Vestimentas", estimado: 100, real: 174 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Outros", estimado: 0, real: 12 },
         ],
         totalEstimado: 500,
         totalReal: 266,
@@ -434,26 +206,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 39,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 39 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 39,
@@ -461,21 +217,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 294,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 45,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 63,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 294 },
+          { nome: "Crédito no celular", estimado: 60, real: 45 },
+          { nome: "Família", estimado: 200, real: 63 },
         ],
         totalEstimado: 610,
         totalReal: 382,
@@ -508,21 +252,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 99,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 59,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 97,
-          },
+          { nome: "Internet", estimado: 99, real: 99 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 59 },
+          { nome: "Conta de luz", estimado: 0, real: 97 },
         ],
         totalEstimado: 99,
         totalReal: 255,
@@ -530,21 +262,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete faculdade",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete faculdade", estimado: 100, real: 0 },
+          { nome: "Uber", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 0,
@@ -552,21 +272,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 32,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 0 },
+          { nome: "Lanche fora", estimado: 50, real: 32 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 32,
@@ -574,41 +282,13 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 192,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 38,
-          },
-          {
-            nome: "Cinema",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 0,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 64,
-          },
-          {
-            nome: "Livro",
-            estimado: 100,
-            real: 74,
-          },
-          {
-            nome: "Zoo",
-            estimado: 132,
-            real: 55,
-          },
+          { nome: "Date", estimado: 200, real: 192 },
+          { nome: "Rolê", estimado: 200, real: 38 },
+          { nome: "Cinema", estimado: 50, real: 0 },
+          { nome: "Beber", estimado: 150, real: 0 },
+          { nome: "Jogos", estimado: 200, real: 64 },
+          { nome: "Livro", estimado: 100, real: 74 },
+          { nome: "Zoo", estimado: 132, real: 55 },
         ],
         totalEstimado: 1032,
         totalReal: 423,
@@ -616,26 +296,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 20,
-          },
-          {
-            nome: "Faculdade",
-            estimado: 400,
-            real: 385,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 145,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 20 },
+          { nome: "Faculdade", estimado: 400, real: 385 },
+          { nome: "Aposta esportiva", estimado: 120, real: 145 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 550,
@@ -643,31 +307,11 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 60,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 38,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 417,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 60 },
+          { nome: "Vestimentas", estimado: 100, real: 0 },
+          { nome: "Academia", estimado: 100, real: 38 },
+          { nome: "Computador", estimado: 200, real: 417 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 500,
         totalReal: 515,
@@ -675,26 +319,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 38,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 38 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 38,
@@ -702,21 +330,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 303.6,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 40,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 74,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 303.6 },
+          { nome: "Crédito no celular", estimado: 60, real: 40 },
+          { nome: "Família", estimado: 200, real: 74 },
         ],
         totalEstimado: 610,
         totalReal: 417.6,
@@ -749,21 +365,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 99,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 3,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Internet", estimado: 99, real: 99 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 3 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 102,
@@ -771,21 +375,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete faculdade",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 60,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete faculdade", estimado: 100, real: 0 },
+          { nome: "Uber", estimado: 50, real: 60 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 60,
@@ -793,21 +385,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 93,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 0 },
+          { nome: "Lanche fora", estimado: 50, real: 93 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 93,
@@ -815,41 +395,13 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Cinema",
-            estimado: 50,
-            real: 72,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 184,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 78,
-          },
-          {
-            nome: "Livro",
-            estimado: 100,
-            real: 32,
-          },
-          {
-            nome: "Zoo",
-            estimado: 132,
-            real: 0,
-          },
+          { nome: "Date", estimado: 200, real: 0 },
+          { nome: "Rolê", estimado: 200, real: 0 },
+          { nome: "Cinema", estimado: 50, real: 72 },
+          { nome: "Beber", estimado: 150, real: 184 },
+          { nome: "Jogos", estimado: 200, real: 78 },
+          { nome: "Livro", estimado: 100, real: 32 },
+          { nome: "Zoo", estimado: 132, real: 0 },
         ],
         totalEstimado: 1032,
         totalReal: 366,
@@ -857,26 +409,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 29,
-          },
-          {
-            nome: "Estudos",
-            estimado: 400,
-            real: 383,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 208,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 29 },
+          { nome: "Estudos", estimado: 400, real: 383 },
+          { nome: "Aposta esportiva", estimado: 120, real: 208 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 620,
@@ -884,36 +420,12 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 60,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 59,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Farmácia",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 12,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 60 },
+          { nome: "Vestimentas", estimado: 100, real: 59 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Farmácia", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 12 },
         ],
         totalEstimado: 550,
         totalReal: 131,
@@ -921,26 +433,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 37,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 70,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 37 },
+          { nome: "Banho e tosa", estimado: 0, real: 70 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 107,
@@ -948,21 +444,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 347,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 40,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 0,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 347 },
+          { nome: "Crédito no celular", estimado: 60, real: 40 },
+          { nome: "Família", estimado: 200, real: 0 },
         ],
         totalEstimado: 610,
         totalReal: 387,
@@ -995,21 +479,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 99,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 5,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Internet", estimado: 99, real: 99 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 5 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 104,
@@ -1017,21 +489,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete único",
-            estimado: 100,
-            real: 70,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 12,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete único", estimado: 100, real: 70 },
+          { nome: "Uber", estimado: 50, real: 12 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 82,
@@ -1039,21 +499,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 0 },
+          { nome: "Lanche fora", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 0,
@@ -1061,41 +509,13 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 261,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "airbnb",
-            estimado: 50,
-            real: 222,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 93,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "album copa",
-            estimado: 100,
-            real: 72,
-          },
-          {
-            nome: "Cris",
-            estimado: 132,
-            real: 235,
-          },
+          { nome: "Date", estimado: 200, real: 261 },
+          { nome: "Rolê", estimado: 200, real: 0 },
+          { nome: "airbnb", estimado: 50, real: 222 },
+          { nome: "Beber", estimado: 150, real: 93 },
+          { nome: "Jogos", estimado: 200, real: 0 },
+          { nome: "album copa", estimado: 100, real: 72 },
+          { nome: "Cris", estimado: 132, real: 235 },
         ],
         totalEstimado: 1032,
         totalReal: 883,
@@ -1103,26 +523,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Estudos",
-            estimado: 400,
-            real: 383,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 173,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 0 },
+          { nome: "Estudos", estimado: 400, real: 383 },
+          { nome: "Aposta esportiva", estimado: 120, real: 173 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 556,
@@ -1130,36 +534,12 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 60,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 50,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Farmácia",
-            estimado: 50,
-            real: 15,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 10,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 60 },
+          { nome: "Vestimentas", estimado: 100, real: 50 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Farmácia", estimado: 50, real: 15 },
+          { nome: "Outros", estimado: 0, real: 10 },
         ],
         totalEstimado: 550,
         totalReal: 135,
@@ -1167,26 +547,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 49,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 89,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 49 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 89 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 138,
@@ -1194,21 +558,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 387,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 45,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 0,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 387 },
+          { nome: "Crédito no celular", estimado: 60, real: 45 },
+          { nome: "Família", estimado: 200, real: 0 },
         ],
         totalEstimado: 610,
         totalReal: 432,
@@ -1241,21 +593,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 0,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 13,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Internet", estimado: 99, real: 0 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 13 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 13,
@@ -1263,21 +603,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete único",
-            estimado: 100,
-            real: 41,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 78,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete único", estimado: 100, real: 41 },
+          { nome: "Uber", estimado: 50, real: 78 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 119,
@@ -1285,21 +613,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 89,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 161,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 89 },
+          { nome: "Lanche fora", estimado: 50, real: 161 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 250,
@@ -1307,41 +623,13 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 77,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 116,
-          },
-          {
-            nome: "airbnb",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 130,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 18,
-          },
-          {
-            nome: "album copa",
-            estimado: 100,
-            real: 14,
-          },
-          {
-            nome: "Cris",
-            estimado: 132,
-            real: 184,
-          },
+          { nome: "Date", estimado: 200, real: 77 },
+          { nome: "Rolê", estimado: 200, real: 116 },
+          { nome: "airbnb", estimado: 50, real: 0 },
+          { nome: "Beber", estimado: 150, real: 130 },
+          { nome: "Jogos", estimado: 200, real: 18 },
+          { nome: "album copa", estimado: 100, real: 14 },
+          { nome: "Cris", estimado: 132, real: 184 },
         ],
         totalEstimado: 1032,
         totalReal: 539,
@@ -1349,26 +637,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Estudos",
-            estimado: 400,
-            real: 383,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 348,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 0 },
+          { nome: "Estudos", estimado: 400, real: 383 },
+          { nome: "Aposta esportiva", estimado: 120, real: 348 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 731,
@@ -1376,36 +648,12 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 60,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Farmácia",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 17,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 60 },
+          { nome: "Vestimentas", estimado: 100, real: 0 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Farmácia", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 17 },
         ],
         totalEstimado: 550,
         totalReal: 77,
@@ -1413,26 +661,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 19,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 19 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 19,
@@ -1440,21 +672,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 303.6,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 40,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 74,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 303.6 },
+          { nome: "Crédito no celular", estimado: 60, real: 40 },
+          { nome: "Família", estimado: 200, real: 74 },
         ],
         totalEstimado: 610,
         totalReal: 417.6,
@@ -1487,21 +707,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 99,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 3,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Internet", estimado: 99, real: 99 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 3 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 102,
@@ -1509,21 +717,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete único",
-            estimado: 100,
-            real: 25.4,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 61,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete único", estimado: 100, real: 25.4 },
+          { nome: "Uber", estimado: 50, real: 61 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 86.4,
@@ -1531,21 +727,9 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 4,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Ifood", estimado: 50, real: 0 },
+          { nome: "Lanche fora", estimado: 50, real: 4 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 100,
         totalReal: 4,
@@ -1553,41 +737,13 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 155,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "airbnb",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 0,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Fute",
-            estimado: 100,
-            real: 48,
-          },
-          {
-            nome: "Cris",
-            estimado: 132,
-            real: 0,
-          },
+          { nome: "Date", estimado: 200, real: 155 },
+          { nome: "Rolê", estimado: 200, real: 0 },
+          { nome: "airbnb", estimado: 50, real: 0 },
+          { nome: "Beber", estimado: 150, real: 0 },
+          { nome: "Jogos", estimado: 200, real: 0 },
+          { nome: "Fute", estimado: 100, real: 48 },
+          { nome: "Cris", estimado: 132, real: 0 },
         ],
         totalEstimado: 1032,
         totalReal: 203,
@@ -1595,26 +751,10 @@ export const meses = [
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Estudos",
-            estimado: 400,
-            real: 383,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 249,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 0 },
+          { nome: "Estudos", estimado: 400, real: 383 },
+          { nome: "Aposta esportiva", estimado: 120, real: 249 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 620,
         totalReal: 632,
@@ -1622,36 +762,12 @@ export const meses = [
       {
         nome: "Cuidados Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 60,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Farmácia",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 17,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 60 },
+          { nome: "Vestimentas", estimado: 100, real: 0 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Farmácia", estimado: 50, real: 0 },
+          { nome: "Outros", estimado: 0, real: 17 },
         ],
         totalEstimado: 550,
         totalReal: 77,
@@ -1659,26 +775,10 @@ export const meses = [
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 19,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 19 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 19,
@@ -1686,21 +786,9 @@ export const meses = [
       {
         nome: "Presentes e Doações",
         itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 323,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 40,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 20,
-          },
+          { nome: "Cartão de crédito", estimado: 350, real: 323 },
+          { nome: "Crédito no celular", estimado: 60, real: 40 },
+          { nome: "Família", estimado: 200, real: 20 },
         ],
         totalEstimado: 610,
         totalReal: 383,
@@ -1733,21 +821,9 @@ export const meses = [
       {
         nome: "Moradia",
         itens: [
-          {
-            nome: "Internet",
-            estimado: 99,
-            real: 0,
-          },
-          {
-            nome: "Mercado / sacolão",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Conta de luz",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Conta de internet", estimado: 99, real: 0 },
+          { nome: "Mercado / sacolão", estimado: 0, real: 0 },
+          { nome: "Conta de luz", estimado: 0, real: 0 },
         ],
         totalEstimado: 99,
         totalReal: 0,
@@ -1755,21 +831,9 @@ export const meses = [
       {
         nome: "Transporte",
         itens: [
-          {
-            nome: "Bilhete único",
-            estimado: 100,
-            real: 25,
-          },
-          {
-            nome: "Uber",
-            estimado: 50,
-            real: 15,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Bilhete único", estimado: 100, real: 25 },
+          { nome: "Uber", estimado: 50, real: 15 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 150,
         totalReal: 40,
@@ -1777,21 +841,10 @@ export const meses = [
       {
         nome: "Comida",
         itens: [
-          {
-            nome: "Ifood",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Lanche fora",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 4,
-          },
+          { nome: "Ifood", estimado: 50, real: 0 },
+          { nome: "Lanche fora", estimado: 50, real: 0 },
+          { nome: "Restaurante", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 4 },
         ],
         totalEstimado: 100,
         totalReal: 4,
@@ -1799,157 +852,60 @@ export const meses = [
       {
         nome: "Entretenimento",
         itens: [
-          {
-            nome: "Date",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Rolê",
-            estimado: 200,
-            real: 85,
-          },
-          {
-            nome: "airbnb",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Beber",
-            estimado: 150,
-            real: 0,
-          },
-          {
-            nome: "Jogos",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Fute",
-            estimado: 100,
-            real: 15,
-          },
-          {
-            nome: "Cris",
-            estimado: 132,
-            real: 0,
-          },
+          { nome: "Date", estimado: 200, real: 0 },
+          { nome: "Rolê", estimado: 200, real: 85 },
+          { nome: "Beber", estimado: 150, real: 0 },
+          { nome: "Jogos e livros", estimado: 200, real: 0 },
+          { nome: "Fute", estimado: 100, real: 15 },
+          { nome: "Cris", estimado: 132, real: 0 },
+          { nome: "Viagem", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
-        totalEstimado: 1032,
+        totalEstimado: 982,
         totalReal: 100,
       },
       {
         nome: "Economias/Investimentos",
         itens: [
-          {
-            nome: "Investimentos",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Estudos",
-            estimado: 400,
-            real: 0,
-          },
-          {
-            nome: "Aposta esportiva",
-            estimado: 120,
-            real: 118,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Investimentos", estimado: 100, real: 0 },
+          { nome: "Estudos", estimado: 400, real: 0 },
+          { nome: "Aposta esportiva", estimado: 120, real: 118 },
+          { nome: "Computador", estimado: 200, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
-        totalEstimado: 620,
+        totalEstimado: 820,
         totalReal: 118,
       },
       {
-        nome: "Cuidados Pessoais",
+        nome: "Custos Pessoais",
         itens: [
-          {
-            nome: "Barbeiro",
-            estimado: 100,
-            real: 80,
-          },
-          {
-            nome: "Vestimentas",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Academia",
-            estimado: 100,
-            real: 0,
-          },
-          {
-            nome: "Computador",
-            estimado: 200,
-            real: 0,
-          },
-          {
-            nome: "Farmácia",
-            estimado: 50,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Barbeiro", estimado: 100, real: 80 },
+          { nome: "Vestimentas", estimado: 100, real: 0 },
+          { nome: "Academia", estimado: 100, real: 0 },
+          { nome: "Farmácia", estimado: 50, real: 0 },
+          { nome: "Cartão de crédito", estimado: 350, real: 255 },
+          { nome: "Crédito no celular", estimado: 60, real: 20 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
-        totalEstimado: 550,
-        totalReal: 80,
+        totalEstimado: 760,
+        totalReal: 355,
       },
       {
         nome: "Animais de estimação",
         itens: [
-          {
-            nome: "Alimentação",
-            estimado: 40,
-            real: 41,
-          },
-          {
-            nome: "Banho e tosa",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Tapete higiênico",
-            estimado: 0,
-            real: 0,
-          },
-          {
-            nome: "Outros",
-            estimado: 0,
-            real: 0,
-          },
+          { nome: "Alimentação", estimado: 40, real: 41 },
+          { nome: "Banho e tosa", estimado: 0, real: 0 },
+          { nome: "Tapete higiênico", estimado: 0, real: 0 },
+          { nome: "Outros", estimado: 0, real: 0 },
         ],
         totalEstimado: 40,
         totalReal: 41,
       },
       {
-        nome: "Presentes e Doações",
-        itens: [
-          {
-            nome: "Cartão de crédito",
-            estimado: 350,
-            real: 255,
-          },
-          {
-            nome: "Crédito no celular",
-            estimado: 60,
-            real: 20,
-          },
-          {
-            nome: "Família",
-            estimado: 200,
-            real: 0,
-          },
-        ],
-        totalEstimado: 610,
-        totalReal: 275,
+        nome: "Família",
+        itens: [{ nome: "Família", estimado: 200, real: 0 }],
+        totalEstimado: 200,
+        totalReal: 0,
       },
     ],
   },
