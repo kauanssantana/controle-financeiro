@@ -460,3 +460,16 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* =========================================
+   PÁGINA RELATÓRIOS: títulos de seção + espaçamento entre blocos
+========================================= */
+
+.secao-relatorio-titulo {
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.pagina-relatorios .card {
+  margin-bottom: 24px;
+}
