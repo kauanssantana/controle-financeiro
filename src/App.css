@@ -20,11 +20,30 @@
   gap: 32px;
 }
 
-.sidebar h1 {
-  color: var(--cor-acento);
-  font-size: 28px;
+/* =========================================
+   HEADER DA SIDEBAR (Logo + Título)
+========================================= */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaço entre o logo e a palavra Controle */
   border-bottom: 1px solid var(--cor-acento);
   padding-bottom: 16px;
+}
+
+.logo-marca {
+  width: 44px; /* Mantém o logo em um tamanho ideal de app */
+  height: auto;
+  object-fit: contain;
+}
+
+.sidebar-header h1 {
+  color: var(
+    --cor-fundo
+  ); /* Deixei o texto claro para contrastar bem com a barra escura */
+  font-size: 26px;
+  margin: 0;
+  letter-spacing: -0.5px; /* Deixa a fonte Inter mais moderna e junta */
 }
 
 .sidebar-menu {
