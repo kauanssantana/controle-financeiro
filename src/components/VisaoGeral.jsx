@@ -36,7 +36,7 @@ function VisaoGeral({
 
       <div className="saldos-comparativo">
         <p>
-          <span>Saldo inicial do mês</span>
+          <span>Saldo bancário inicial do mês</span>
           <input
             type="number"
             value={saldo.inicial}
@@ -44,7 +44,7 @@ function VisaoGeral({
           />
         </p>
         <p>
-          <span>Saldo final do mês</span>
+          <span>Saldo bancário final do mês</span>
           <input
             type="number"
             value={saldo.final}

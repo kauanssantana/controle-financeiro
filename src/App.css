@@ -488,3 +488,45 @@ input[type="number"] {
   border: none !important;
   display: block !important;
 }
+
+/* =========================================
+   BARRA DE PROGRESSO por categoria (estimado x real)
+========================================= */
+
+.barra-progresso-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.barra-progresso-trilho {
+  flex: 1;
+  height: 6px;
+  background-color: rgba(27, 36, 48, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-progresso-preenchida {
+  height: 100%;
+  background-color: var(--cor-acento);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.barra-progresso-preenchida.estourada {
+  background-color: var(--cor-negativo);
+}
+
+.barra-progresso-texto {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cor-texto-suave);
+  min-width: 32px;
+  text-align: right;
+}
+
+.barra-progresso-texto.estourada {
+  color: var(--cor-negativo);
+}
