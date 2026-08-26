@@ -213,7 +213,13 @@ function App() {
           />
           <Route
             path="/configuracoes"
-            element={<Configuracoes totalMeses={listaMeses.length} />}
+            element={
+              <Configuracoes
+                totalMeses={listaMeses.length}
+                listaMeses={listaMeses}
+                restaurarBackup={setListaMeses}
+              />
+            }
           />
         </Routes>
       </main>

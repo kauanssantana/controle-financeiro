@@ -440,3 +440,51 @@ input[type="number"] {
 .pagina-relatorios .card {
   margin-bottom: 24px;
 }
+
+/* =========================================
+   BACKUP MANUAL (Configurações): exportar/importar dados
+========================================= */
+
+.acoes-backup {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.botao-primario {
+  background: var(--cor-acento);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-primario:hover {
+  opacity: 0.9;
+}
+
+.botao-secundario {
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 1px solid var(--cor-primaria);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-secundario:hover {
+  background-color: rgba(22, 35, 63, 0.05);
+}
+
+.dica-backup {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  margin: 16px 0 20px;
+  line-height: 1.5;
+  border: none !important;
+  display: block !important;
+}
