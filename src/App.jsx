@@ -196,7 +196,6 @@ function App() {
 
   return (
     <div className="app-layout">
-      {/* NOVO: Botão Hambúrguer - Só aparece no mobile via CSS */}
       <button
         className="menu-toggle"
         onClick={() => setMenuAberto(!menuAberto)}
@@ -204,13 +203,11 @@ function App() {
         {menuAberto ? "✕" : "☰"}
       </button>
 
-      {/* NOVO: Overlay escuro que fecha o menu ao clicar fora dele */}
       <div
         className={`menu-overlay ${menuAberto ? "ativo" : ""}`}
         onClick={() => setMenuAberto(false)}
       ></div>
 
-      {/* MODIFICADO: Passamos as informações de abrir/fechar para a Sidebar */}
       <Sidebar menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
 
       <main className="main-content">

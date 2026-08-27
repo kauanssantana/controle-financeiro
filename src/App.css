@@ -98,6 +98,18 @@
   flex-direction: column;
   padding: 32px 48px;
   overflow-y: auto;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cabecalho-mes {
@@ -682,4 +694,25 @@ input[type="number"] {
     padding: 8px 4px;
     font-size: 13px;
   }
+}
+
+/* =========================================
+   SCROLLBAR CUSTOMIZADA 
+========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cor-fundo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cor-primaria-clara);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-acento);
 }
