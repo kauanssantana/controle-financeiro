@@ -25,12 +25,12 @@ function GraficoEvolucaoSaldo({ listaMeses }) {
     });
 
   return (
-    <ResponsiveContainer width="100%" height={280}>
+    <ResponsiveContainer width="99%" height={280}>
       <LineChart
         data={dados}
-        margin={{ top: 8, right: 16, left: 0, bottom: 0 }}
+        margin={{ top: 8, right: 10, left: -20, bottom: 0 }}
       >
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(38,51,43,0.15)" />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(27, 36, 48, 0.15)" />
         <XAxis dataKey="label" tick={{ fontSize: 11 }} />
         <YAxis tick={{ fontSize: 11 }} />
         <Tooltip formatter={(value) => `R$ ${value.toFixed(2)}`} />

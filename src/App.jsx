@@ -192,9 +192,27 @@ function App() {
   };
   const acoesDashboard = { atualizarRenda, atualizarSaldo, atualizarItem };
 
+  const [menuAberto, setMenuAberto] = useState(false);
+
   return (
     <div className="app-layout">
-      <Sidebar />
+      {/* NOVO: Botão Hambúrguer - Só aparece no mobile via CSS */}
+      <button
+        className="menu-toggle"
+        onClick={() => setMenuAberto(!menuAberto)}
+      >
+        {menuAberto ? "✕" : "☰"}
+      </button>
+
+      {/* NOVO: Overlay escuro que fecha o menu ao clicar fora dele */}
+      <div
+        className={`menu-overlay ${menuAberto ? "ativo" : ""}`}
+        onClick={() => setMenuAberto(false)}
+      ></div>
+
+      {/* MODIFICADO: Passamos as informações de abrir/fechar para a Sidebar */}
+      <Sidebar menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
       <main className="main-content">
         <Routes>
           <Route
@@ -213,13 +231,7 @@ function App() {
           />
           <Route
             path="/configuracoes"
-            element={
-              <Configuracoes
-                totalMeses={listaMeses.length}
-                listaMeses={listaMeses}
-                restaurarBackup={setListaMeses}
-              />
-            }
+            element={<Configuracoes totalMeses={listaMeses.length} />}
           />
         </Routes>
       </main>

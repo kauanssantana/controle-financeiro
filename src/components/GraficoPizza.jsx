@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PieChart, Pie, Cell, Sector } from "recharts";
+import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from "recharts";
 
 const CORES = [
   "#16233f",
@@ -34,7 +34,7 @@ function GraficoPizza({ categorias }) {
   const dados = categorias.filter((cat) => cat.totalReal > 0);
   const totalGasto = dados.reduce((acc, cat) => acc + cat.totalReal, 0);
 
-  // NOVO: Lógica para varrer todos os itens de todas as categorias e achar o maior
+  // Lógica para varrer todos os itens de todas as categorias e achar o maior
   let todosOsItens = [];
   categorias.forEach((cat) => {
     if (cat.itens) {
@@ -87,7 +87,7 @@ function GraficoPizza({ categorias }) {
     >
       <h3>Distribuição de Gastos Reais</h3>
 
-      {/* NOVO: Destaque do Maior ITEM do mês com o layout alinhado pelas pontas */}
+      {/* Destaque do Maior ITEM do mês com o layout alinhado pelas pontas */}
       {topItem && (
         <div
           style={{
@@ -96,15 +96,15 @@ function GraficoPizza({ categorias }) {
             alignItems: "center",
             margin: "-12px 0 24px 0",
             paddingBottom: "8px",
-            borderBottom: "1px solid rgba(61, 90, 69, 0.2)",
+            borderBottom: "1px solid rgba(27, 36, 48, 0.2)",
             fontSize: "15px",
             fontWeight: 600,
-            color: "var(--tinta)",
+            color: "var(--cor-texto)",
             opacity: 0.9,
           }}
         >
           <span>💡 Maior gasto:</span>
-          <span style={{ color: "var(--terracota)", fontWeight: 700 }}>
+          <span style={{ color: "var(--cor-negativo)", fontWeight: 700 }}>
             {topItem.nome} ({topItemPercent}%)
           </span>
         </div>
@@ -113,33 +113,44 @@ function GraficoPizza({ categorias }) {
       <div
         style={{
           display: "flex",
+          flexWrap: "wrap",
           alignItems: "center",
           justifyContent: "center",
-          gap: "60px",
+          gap: "30px",
           flex: 1,
           padding: "10px 0",
         }}
       >
-        <div style={{ position: "relative", width: 360, height: 360 }}>
-          <PieChart width={360} height={360}>
-            <Pie
-              data={dados}
-              dataKey="totalReal"
-              nameKey="nome"
-              cx="50%"
-              cy="50%"
-              innerRadius={110}
-              outerRadius={155}
-              activeIndex={indiceAtivo !== null ? indiceAtivo : -1}
-              activeShape={fatiaDestacada}
-              onMouseEnter={(_, index) => setIndiceAtivo(index)}
-              onMouseLeave={() => setIndiceAtivo(null)}
-            >
-              {dados.map((cat, index) => (
-                <Cell key={cat.nome} fill={CORES[index % CORES.length]} />
-              ))}
-            </Pie>
-          </PieChart>
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            maxWidth: 360,
+            height: 360,
+            margin: "0 auto",
+          }}
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={dados}
+                dataKey="totalReal"
+                nameKey="nome"
+                cx="50%"
+                cy="50%"
+                innerRadius={100}
+                outerRadius={140}
+                activeIndex={indiceAtivo !== null ? indiceAtivo : -1}
+                activeShape={fatiaDestacada}
+                onMouseEnter={(_, index) => setIndiceAtivo(index)}
+                onMouseLeave={() => setIndiceAtivo(null)}
+              >
+                {dados.map((cat, index) => (
+                  <Cell key={cat.nome} fill={CORES[index % CORES.length]} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
 
           {/* O TEXTO DENTRO DA ROSCA */}
           <div
@@ -151,7 +162,7 @@ function GraficoPizza({ categorias }) {
               textAlign: "center",
               pointerEvents: "none",
               width: "160px",
-              color: "var(--tinta)",
+              color: "var(--cor-texto)",
             }}
           >
             {indiceAtivo !== null && dados[indiceAtivo] ? (
@@ -196,7 +207,7 @@ function GraficoPizza({ categorias }) {
                   style={{
                     fontSize: "24px",
                     fontWeight: 800,
-                    color: "var(--terracota)",
+                    color: "var(--cor-negativo)",
                   }}
                 >
                   {`R$ ${totalGasto.toLocaleString("pt-BR", {
@@ -223,7 +234,7 @@ function GraficoPizza({ categorias }) {
                 cursor: "pointer",
                 fontSize: "16px",
                 fontWeight: indiceAtivo === index ? 700 : 500,
-                color: "var(--tinta)",
+                color: "var(--cor-texto)",
                 opacity:
                   indiceAtivo !== null && indiceAtivo !== index ? 0.4 : 1,
                 transition: "all 0.2s ease",

@@ -1,15 +1,18 @@
 import { NavLink } from "react-router-dom";
 
-// Importando as imagens da pasta assets (incluindo o seu novo logo)
 import logoImg from "../assets/logo.png";
 import iconeDashboard from "../assets/painel-de-controle.png";
 import iconeRelatorios from "../assets/relatorio-de-negocios.png";
 import iconeConfiguracoes from "../assets/engrenagens.png";
 
-function Sidebar() {
+// NOVO: A Sidebar agora recebe as "props" de menuAberto
+function Sidebar({ menuAberto, setMenuAberto }) {
+  // Função para fechar a gaveta quando o usuário clica em um link no celular
+  const fecharMenu = () => setMenuAberto(false);
+
   return (
-    <aside className="sidebar">
-      {/* Header da Sidebar com o seu PNG e o Título lado a lado */}
+    // Se o menuAberto for true, ele injeta a classe "aberta"
+    <aside className={`sidebar ${menuAberto ? "aberta" : ""}`}>
       <div className="sidebar-header">
         <img src={logoImg} alt="Logo Controle" className="logo-marca" />
         <h1>Controle</h1>
@@ -19,6 +22,7 @@ function Sidebar() {
         <NavLink
           to="/"
           end
+          onClick={fecharMenu}
           className={({ isActive }) => (isActive ? "link-ativo" : "")}
         >
           <img
@@ -31,6 +35,7 @@ function Sidebar() {
 
         <NavLink
           to="/relatorios"
+          onClick={fecharMenu}
           className={({ isActive }) => (isActive ? "link-ativo" : "")}
         >
           <img
@@ -43,6 +48,7 @@ function Sidebar() {
 
         <NavLink
           to="/configuracoes"
+          onClick={fecharMenu}
           className={({ isActive }) => (isActive ? "link-ativo" : "")}
         >
           <img

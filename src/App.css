@@ -26,24 +26,22 @@
 .sidebar-header {
   display: flex;
   align-items: center;
-  gap: 12px; /* Espaço entre o logo e a palavra Controle */
+  gap: 12px;
   border-bottom: 1px solid var(--cor-acento);
   padding-bottom: 16px;
 }
 
 .logo-marca {
-  width: 44px; /* Mantém o logo em um tamanho ideal de app */
+  width: 44px;
   height: auto;
   object-fit: contain;
 }
 
 .sidebar-header h1 {
-  color: var(
-    --cor-fundo
-  ); /* Deixei o texto claro para contrastar bem com a barra escura */
+  color: var(--cor-fundo);
   font-size: 26px;
   margin: 0;
-  letter-spacing: -0.5px; /* Deixa a fonte Inter mais moderna e junta */
+  letter-spacing: -0.5px;
 }
 
 .sidebar-menu {
@@ -155,11 +153,16 @@
 }
 
 .card {
-  background-color: var(--cor-fundo);
+  background-color: var(
+    --cor-superficie
+  ); /* Usando variável semântica de fundo */
   border: 1px solid var(--cor-texto);
   border-radius: 8px;
   padding: 24px;
   box-shadow: 4px 4px 0px var(--cor-primaria);
+
+  /* CORREÇÃO CRÍTICA PARA GRÁFICOS RESPONSIVOS EM GRID: */
+  min-width: 0;
 }
 
 .card-resumo {
@@ -188,8 +191,13 @@
   border-bottom: 2px solid var(--cor-negativo);
   padding-bottom: 8px;
   display: inline-block;
-  width: max-content;
   align-self: flex-start;
+
+  /* CORREÇÃO CRÍTICA PARA TÍTULOS LONGOS NÃO VAZAREM A TELA: */
+  width: max-content;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .card p {
@@ -425,13 +433,13 @@
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
-
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
-
 .secao-relatorio-titulo {
   margin-top: 32px;
   margin-bottom: 12px;
@@ -529,4 +537,149 @@ input[type="number"] {
 
 .barra-progresso-texto.estourada {
   color: var(--cor-negativo);
+}
+/* =========================================
+   MENU HAMBÚRGUER (MOBILE)
+========================================= */
+.menu-toggle {
+  display: none; /* Escondido no Computador */
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1001;
+  background-color: var(--cor-primaria);
+  color: var(--cor-superficie);
+  border: none;
+  border-radius: 8px;
+  width: 46px;
+  height: 46px;
+  font-size: 22px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(
+    22,
+    35,
+    63,
+    0.4
+  ); /* Seu tom azul-marinho transparente */
+  backdrop-filter: blur(3px); /* Efeito de desfoque moderno */
+  z-index: 999;
+}
+
+/* =========================================
+   RESPONSIVIDADE: TABLETS E LAPTOPS (Até 1200px)
+========================================= */
+@media (max-width: 1200px) {
+  .card-resumo {
+    grid-column: span 12;
+  }
+  .card-grafico {
+    grid-column: span 12;
+  }
+}
+
+/* =========================================
+   RESPONSIVIDADE: MOBILE (Até 992px)
+========================================= */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .menu-overlay.ativo {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+    width: 280px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .sidebar.aberta {
+    left: 0;
+  }
+
+  .main-content {
+    padding: 24px 16px;
+    padding-top: 80px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card-resumo,
+  .card-grafico,
+  .card-lista,
+  .card-comparativo {
+    grid-column: span 1 !important;
+  }
+
+  .cabecalho-mes {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .cabecalho-mes div {
+    display: flex;
+    gap: 8px;
+  }
+  .cabecalho-mes button {
+    flex: 1;
+    padding: 10px;
+  }
+}
+
+/* =========================================
+   RESPONSIVIDADE: CELULARES PEQUENOS E MÉDIOS (Até 576px)
+   Resolve quebras em todas as telas
+========================================= */
+@media (max-width: 576px) {
+  .main-content {
+    padding: 16px 8px;
+    padding-top: 80px;
+  }
+
+  .card {
+    padding: 16px 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card p {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .card input {
+    width: 100%;
+  }
+
+  .saldos-comparativo {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tabela-itens th,
+  .tabela-itens td {
+    padding: 8px 4px;
+    font-size: 13px;
+  }
 }
