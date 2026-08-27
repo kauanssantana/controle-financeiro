@@ -20,6 +20,11 @@ function Dashboard({ dados, navegacao, acoes }) {
   } = navegacao;
   const { atualizarRenda, atualizarSaldo, atualizarItem } = acoes;
 
+  // NOVA FUNÇÃO: Chama a tela de impressão do navegador para gerar o PDF
+  function gerarPDF() {
+    window.print();
+  }
+
   return (
     <>
       <AbasAno
@@ -29,23 +34,43 @@ function Dashboard({ dados, navegacao, acoes }) {
       />
 
       <header className="cabecalho-mes">
-        <button onClick={mesAnterior} disabled={mesAtualIndex === 0}>
-          ← Anterior
-        </button>
-        <h2>
+        {/* Lado esquerdo: Botão Anterior */}
+        <div style={{ display: "flex", gap: "8px", flex: 1 }}>
+          <button onClick={mesAnterior} disabled={mesAtualIndex === 0}>
+            ← Anterior
+          </button>
+        </div>
+
+        {/* Centro: Título do Mês */}
+        <h2 style={{ textAlign: "center", flex: 1 }}>
           {mesAtual.mes} de {mesAtual.ano}
         </h2>
-        <button
-          onClick={proximoMes}
-          disabled={mesAtualIndex === mesesDoAno.length - 1}
+
+        {/* Lado direito: PDF, Próximo e Novo Mês */}
+        <div
+          style={{
+            display: "flex",
+            gap: "8px",
+            flex: 1,
+            justifyContent: "flex-end",
+            flexWrap: "wrap",
+          }}
         >
-          Próximo →
-        </button>
-        {ehUltimoMesGlobal && mesAtualIndex === mesesDoAno.length - 1 && (
-          <button onClick={criarProximoMes} className="botao-novo-mes">
-            + Criar mês
+          <button onClick={gerarPDF}>📄 PDF</button>
+
+          <button
+            onClick={proximoMes}
+            disabled={mesAtualIndex === mesesDoAno.length - 1}
+          >
+            Próximo →
           </button>
-        )}
+
+          {ehUltimoMesGlobal && mesAtualIndex === mesesDoAno.length - 1 && (
+            <button onClick={criarProximoMes} className="botao-novo-mes">
+              + Criar mês
+            </button>
+          )}
+        </div>
       </header>
 
       <div className="dashboard-grid">

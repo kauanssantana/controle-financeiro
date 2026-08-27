@@ -75,9 +75,27 @@ function Relatorios({ listaMeses }) {
   );
   const categoriasDoAno = agregarCategoriasPorAno(mesesDoAnoSelecionado);
 
+  // NOVA FUNÇÃO: Chama a tela de impressão do navegador
+  function gerarPDF() {
+    window.print();
+  }
+
   return (
     <div className="pagina-relatorios">
-      <h2>Relatórios</h2>
+      {/* NOVO LAYOUT DO CABEÇALHO: Título e Botão lado a lado */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "24px",
+        }}
+      >
+        <h2 style={{ margin: 0 }}>Relatórios</h2>
+        <button onClick={gerarPDF} className="botao-primario">
+          📄 Gerar PDF
+        </button>
+      </div>
 
       <div className="card">
         <h3>Evolução do saldo (histórico completo)</h3>

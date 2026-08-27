@@ -5,7 +5,6 @@ import iconeDashboard from "../assets/painel-de-controle.png";
 import iconeRelatorios from "../assets/relatorio-de-negocios.png";
 import iconeConfiguracoes from "../assets/engrenagens.png";
 
-// NOVO: A Sidebar agora recebe as "props" de menuAberto
 function Sidebar({ menuAberto, setMenuAberto }) {
   // Função para fechar a gaveta quando o usuário clica em um link no celular
   const fecharMenu = () => setMenuAberto(false);
